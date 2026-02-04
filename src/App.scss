@@ -1,0 +1,26 @@
+@import '../src/styles/mixins';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+
+  font-size: 10px; // тепер 4.51rem = 45.1px
+
+  @include onTablet {
+    font-size: 14px; // тепер 4.51rem = 63.1px
+  }
+
+  @include onDesktop {
+    font-size: 16px; // тепер 4.51rem = 72.1px
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
