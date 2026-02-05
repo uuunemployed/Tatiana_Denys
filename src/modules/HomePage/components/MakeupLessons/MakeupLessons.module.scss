@@ -1,0 +1,156 @@
+.lessons {
+  background-color: #420000;
+  padding: 21.33rem 6.4rem;
+  background-image: url("https://cdn.prod.website-files.com/6755a7fa000adc96325f897d/67fe35333967fa311a4d7cf1_image%2074.png");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__top_subtitle {
+    text-align: center;
+    margin-bottom: 0.8rem;
+    font-size: 3.73rem;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-family: "Arimo", sans-serif;
+  }
+
+  &__top_title {
+    text-align: center;
+    margin-bottom: 17.06rem;
+    font-size: 6.4rem;
+    font-weight: 700;
+    font-family: "Arimo", sans-serif;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
+    margin-bottom: 12.8rem;
+  }
+
+  &__card {
+    border-top: 1px solid #5f5f5f;
+    padding-top: 5.6rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    max-height: 3000px; 
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
+
+    &.hiddenCard {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      border-top: 0px solid transparent;
+      pointer-events: none;
+      margin-top: -6.4rem;
+    }
+  }
+
+  &__card_header {
+    box-shadow: 19px 24px 37px #00000040;
+  }
+
+  &__card_info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4.26rem;
+    margin-bottom: 6.4rem;
+  }
+
+  &__card_id {
+    font-size: 5.33rem;
+    font-family: "Arimo", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1;
+    margin-right: 1.88rem;
+  }
+
+  &__card_name {
+    font-size: 5.33rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: "Arimo", sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__topics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.13rem;
+    padding-left: 15.03rem;
+    padding-bottom: 6.67rem;
+  }
+
+  &__topic_item {
+    display: flex;
+    gap: 2.66rem;
+    font-size: 3.73rem;
+    line-height: 1.5;
+    font-family: "Arimo", sans-serif;
+
+    span:first-child { color: #ffffff; flex-shrink: 0; }
+    .text_gray { color: #d1d5db; }
+    .bold { font-weight: 700; color: #ffffff; }
+  }
+
+  &__image_container {
+    position: relative;
+    height: 80rem;
+    width: 100%;
+    padding-block: 3.2rem;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__result_label {
+    font-size: 6.4rem;
+    font-weight: 700;
+    margin-bottom: 2.13rem;
+    font-family: "Arimo", sans-serif;
+  }
+
+  &__result_text {
+    font-size: 4rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    font-family: "Arimo", sans-serif;
+  }
+
+  &__footer { text-align: center; }
+
+  &__btn {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 4.26rem 10.66rem;
+    border-radius: 266.66rem;
+    font-size: 4.26rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Arimo", sans-serif;
+    max-width: 74.66rem;
+    border: 1px solid #ffffff;
+  }
+}

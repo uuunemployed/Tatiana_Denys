@@ -1,4 +1,4 @@
-@import "../../../../styles/mixins";
+@use "../../../../styles/mixins" as *;
 
 .hero {
   height: 100vh;
@@ -17,10 +17,6 @@
 
     display: flex;
     justify-content: end;
-
-    &-title {
-      font-weight: 400;
-    }
   }
 
   &__content {
@@ -28,67 +24,76 @@
     margin-top: auto;
   }
 
-  &__top {
-    position: relative;
-    width: 100%;
-    @include flex-column-center;
-  }
-
   &__title {
     display: flex;
-    align-items: end;
-    justify-content: center;
+    flex-direction: column;
     text-transform: uppercase;
-    line-height: 1;
     width: 100%;
-    max-width: 320px;
     font-family: "Tinos", serif;
     color: #ffffff;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 9.6rem;
+    font-style: italic;
+    position: relative;
 
-    &--left {
-      align-self: flex-start;
-      text-align: left;
-      font-style: italic;
+    &-content {
+      margin-left: 4.26rem;
+      width: fit-content;
     }
 
-    &--right {
-      align-self: flex-end;
-      text-align: right;
-      margin-left: 24px;
-      font-style: italic;
+    &--top {
+      margin-left: 10.5rem;
+      margin-bottom: -6rem;
+
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: end;
     }
 
     &--bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     &-letter {
       display: inline-block;
-      font-size: 64px;
-      line-height: 64px;
+      font-size: 14.93rem;
+      line-height: 1;
       font-weight: 400;
       font-style: normal;
+      vertical-align: baseline;
+      margin-bottom: -0.3rem;
     }
   }
 
-  &__text {
+  &__text,
+  &__text-title {
     text-align: center;
-    font-size: 12px;
+    font-size: 3.2rem;
     font-weight: 400;
     line-height: 26px;
     color: #ffffff;
     text-transform: lowercase;
     font-family: "Arimo", sans-serif;
-    max-width: 400px;
+
+    &-title {
+      position: absolute;
+      bottom: 1rem;
+      right: 0;
+      font-style: italic;
+      line-height: 20px;
+    }
+  }
+
+  &__description {
+    padding-top: 32px;
+    @include flex-column-center;
+    gap: 40px;
   }
 
   &__button {
-    padding: 1rem 2rem;
+    padding: 4.26rem 8.52rem;
     border: 1px solid #ffffff;
     border-radius: 25px;
     background-color: rgba(255, 255, 255, 0);

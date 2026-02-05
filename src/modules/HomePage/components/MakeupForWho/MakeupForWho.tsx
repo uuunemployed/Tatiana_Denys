@@ -42,24 +42,21 @@ export function MakeupForWho() {
   return (
     <section className={styles["makeup-for-who"]}>
       <div className={styles["makeup-for-who__container"]}>
-        <header className={styles["makeup-for-who__header"]}>
-          <div className={styles["makeup-for-who__subtitle"]}>for what?</div>
-          <h2 className={styles["makeup-for-who__title"]}>
-            ДЛЯ КОГО
-            <span className={styles["makeup-for-who__title--sub"]}>
-              ПІДІЙДЕ КУРС?
-            </span>
-          </h2>
-        </header>
-
         <div className={styles["makeup-for-who__list"]}>
+          <header className={styles["makeup-for-who__header"]}>
+            <div className={styles["makeup-for-who__subtitle"]}>for what?</div>
+            <h2 className={styles["makeup-for-who__title"]}>
+              ДЛЯ КОГО
+              <span className={styles["makeup-for-who__title--sub"]}>
+                ПІДІЙДЕ КУРС?
+              </span>
+            </h2>
+          </header>
           {cardsData.map((card, index) => (
             <article
               key={card.id}
               className={styles["makeup-for-who__card"]}
-              style={{
-                top: `${80 + index * 40}px`,
-              }}
+              style={{ top: `${160 + index * 40}px` }}
             >
               <div className={styles["makeup-for-who__card-content"]}>
                 <div className={styles["makeup-for-who__card-header"]}>

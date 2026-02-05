@@ -1,0 +1,78 @@
+@use "../../../../styles/mixins" as *;
+
+.expert {
+  padding-top: 17.05rem;
+  @include inline-padding;
+
+  &__content {
+    position: relative;
+    width: 100%;
+
+    padding-bottom: 22.9rem;
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 65.33rem;
+    height: 105.06rem;
+  }
+
+  &__stats {
+    width: 100%;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    row-gap: 12.2rem;
+  }
+
+  &__card {
+    background-color: #ffffff;
+    padding: 4.26rem;
+    box-shadow: 0 5.33rem 6.67rem rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+     gap: 1.6rem;
+    z-index: 3;
+    width: fit-content;
+    min-width: 32.66rem;
+
+    &--first {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    &--second {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-self: end;
+    }
+    &--third {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+    }
+
+    &_number {
+      font-size: 9.6rem;
+      font-weight: 600;
+      color: #0a0a0a;
+    }
+
+    &_desc {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__description {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

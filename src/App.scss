@@ -1,4 +1,4 @@
-@import '../src/styles/mixins';
+@use "../src/styles/mixins" as *;
 
 * {
   box-sizing: border-box;
@@ -9,18 +9,11 @@
 html {
   font-family: "Inter", sans-serif;
 
-  font-size: 10px; // тепер 4.51rem = 45.1px
-
-  @include onTablet {
-    font-size: 14px; // тепер 4.51rem = 63.1px
-  }
-
-  @include onDesktop {
-    font-size: 16px; // тепер 4.51rem = 72.1px
-  }
+  font-size: 1vw;
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-size: 4rem;
 }

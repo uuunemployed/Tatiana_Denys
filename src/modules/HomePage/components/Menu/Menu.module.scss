@@ -9,6 +9,7 @@
   height: 100vh;
   transform: translateX(100%);
   transition: all 0.3s;
+  z-index: 1000;
 
   &-open {
     opacity: 1;

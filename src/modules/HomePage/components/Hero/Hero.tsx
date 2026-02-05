@@ -18,39 +18,32 @@ export const Hero = () => {
         />
       </header>
       <div className={styles.hero__content}>
-        <div className={styles.hero__top}>
-          <div className={styles.hero__title}>
-            <span
-              className={styles["hero__title-letter"]}
-              style={{ marginBottom: "-4px" }}
-            >
-              S
-            </span>
-            <div>
-              <span className={styles["hero__title--right"]}>
-                <span className={styles["hero__title-letter"]}>M</span>AKEUP
-              </span>
-              <div className={styles["hero__title--bottom"]}>
-                <span className={styles["hero__title--left"]}>ECRETS</span>
-                <span
-                  className={styles["hero__text"]}
-                  style={{ fontStyle: "italic", lineHeight: "20px" }}
-                >
-                  від нуля до впевненості
-                </span>
-              </div>
+        <div className={styles.hero__title}>
+          <div className={styles["hero__title-content"]}>
+            <div className={styles["hero__title--top"]}>
+              <span className={styles["hero__title-letter"]}>M</span>
+              AKEUP
+            </div>
+            <div className={styles["hero__title--bottom"]}>
+              <span className={styles["hero__title-letter"]}>S</span>
+              ECRETS
             </div>
           </div>
+          <span className={styles["hero__text-title"]}>
+            від нуля до впевненості
+          </span>
         </div>
-        <p className={styles.hero__text} style={{ marginTop: "32px" }}>
-          Навчися створювати ідеальний макіяж без складностей — підкреслюй свою
-          риси, створюй гармонійний образ і виглядай впевнено у будь-якій
-          ситуації
-        </p>
-        <button className={styles.hero__button} style={{ marginTop: "40px" }}>
-          Почати навчання
-          <ButtonIron />
-        </button>
+        <div className={styles.hero__description}>
+          <p className={styles.hero__text}>
+            Навчися створювати ідеальний макіяж без складностей — підкреслюй
+            свою риси, створюй гармонійний образ і виглядай впевнено у будь-якій
+            ситуації
+          </p>
+          <button className={styles.hero__button}>
+            Почати навчання
+            <ButtonIron />
+          </button>
+        </div>
       </div>
 
       <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
