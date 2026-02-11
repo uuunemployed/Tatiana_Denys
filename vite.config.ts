@@ -7,4 +7,11 @@ export default defineConfig({
     react(), 
     svgr()
   ],
+
+  base: '/Tatiana_Denys/', 
+  build: {
+
+  
+    outDir: 'dist',
+  }
 });

@@ -45,7 +45,7 @@ export function MakeupExpert() {
         </div>
         <img
           className={styles.expert__image}
-          src="../../../../../public/images/expert-image.png"
+          src="images/expert-image.png"
           alt=""
         />
       </div>

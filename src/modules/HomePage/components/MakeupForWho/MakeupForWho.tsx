@@ -1,5 +1,5 @@
 import styles from "./MakeupForWho.module.scss";
-import ButtonIron from "../../../../../public/icons/iron.svg?react";
+import ButtonIron from "../../../../shared/icons/iron.svg?react";
 
 const cardsData = [
   {

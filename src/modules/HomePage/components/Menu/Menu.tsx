@@ -1,4 +1,4 @@
-import MenuIcon from "../../../../../public/icons/menu.svg?react";
+import MenuIcon from "../../../../shared/icons/menu.svg?react";
 import styles from "./Menu.module.scss";
 
 export const Menu = ({

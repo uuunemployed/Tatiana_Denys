@@ -1,6 +1,6 @@
 import styles from "./Hero.module.scss";
-import MenuIcon from "../../../../../public/icons/menu.svg?react";
-import ButtonIron from "../../../../../public/icons/iron.svg?react";
+import MenuIcon from "../../../../shared/icons/menu.svg?react";
+import ButtonIron from "../../../../shared/icons/iron.svg?react";
 import { useState } from "react";
 import { Menu } from "../Menu";
 

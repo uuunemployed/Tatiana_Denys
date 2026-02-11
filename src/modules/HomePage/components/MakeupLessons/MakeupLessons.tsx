@@ -19,8 +19,7 @@ const lessonsData = [
     ],
     result:
       "Навчитеся уникати поширених помилок у макіяжі, дізнаєтеся, які засоби необхідні для базового макіяжу, як правильно підібрати косметику під свій тип шкіри, як визначити свій колортип і використовувати це для створення гармонійного образу",
-    image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "images/IMG_8245.PNG",
   },
   {
     id: "02",
@@ -37,8 +36,7 @@ const lessonsData = [
     ],
     result:
       "Навчитеся обирати ідеальний відтінок тонального засобу та формулу відповідно до типу шкіри",
-    image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    image: "images/IMG_8251.JPG",
   },
   {
     id: "03",
@@ -52,7 +50,7 @@ const lessonsData = [
     result:
       "Опануєте техніки корекції форми обличчя та створення природного сяйва",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/IMG_8252.PNG",
   },
   {
     id: "04",
@@ -156,8 +154,8 @@ export function MakeupLessons() {
 
         <div className={styles.lessons__grid}>
           {lessonsData.map((lesson, index) => (
-            <div 
-              key={lesson.id} 
+            <div
+              key={lesson.id}
               className={`${styles.lessons__card} ${index >= 3 && !showAll ? styles.hiddenCard : ""}`}
             >
               <div className={styles.lessons__card_header}>
@@ -171,10 +169,14 @@ export function MakeupLessons() {
                     <li key={idx} className={styles.lessons__topic_item}>
                       <span>↘</span>
                       <span className={styles.text_gray}>
-                        {typeof topic === "string" ? topic : (
+                        {typeof topic === "string" ? (
+                          topic
+                        ) : (
                           <>
                             {topic.text}
-                            {topic.bold && <span className={styles.bold}>{topic.bold}</span>}
+                            {topic.bold && (
+                              <span className={styles.bold}>{topic.bold}</span>
+                            )}
                             {topic.rest && topic.rest}
                           </>
                         )}
@@ -185,7 +187,11 @@ export function MakeupLessons() {
               </div>
 
               <div className={styles.lessons__image_container}>
-                <img src={lesson.image} alt="" className={styles.lessons__image} />
+                <img
+                  src={lesson.image}
+                  alt=""
+                  className={styles.lessons__image}
+                />
               </div>
 
               <div className={styles.lessons__result_section}>
