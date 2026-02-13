@@ -1,8 +1,8 @@
 .pricing {
   position: relative;
-  background: linear-gradient(to bottom, #ffffff, #f9fafb);
+  background: linear-gradient(to bottom, #ffffff, #F5F5F5);
   padding: 14.93rem 4.48rem; // 21.33 * 0.7
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
 
   &__header {
     text-align: center;
@@ -19,7 +19,7 @@
   &__card {
     background-color: #fff;
     box-shadow: 0 4.48rem 9.33rem rgba(0, 0, 0, 0.1);
-        // border-top: 0.74rem solid #420000; // 1.06 * 0.7
+    // border-top: 0.74rem solid #420000; // 1.06 * 0.7
     width: 100%;
   }
 
@@ -82,7 +82,9 @@
     color: #000;
     display: flex;
     gap: 1.49rem;
-    span:first-child { color: #420000; }
+    span:first-child {
+      color: #420000;
+    }
   }
 
   &__divider {
@@ -119,6 +121,10 @@
     font-weight: 600;
     border: none;
     letter-spacing: 0.14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.66rem;
   }
 
   &__trustBadge {

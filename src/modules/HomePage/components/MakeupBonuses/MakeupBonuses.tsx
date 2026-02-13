@@ -1,5 +1,5 @@
 import styles from "./MakeupBonuses.module.scss";
-import PresentIron from "../../../../shared/icons/present.svg?react";
+import PresentIcon from "../../../../shared/icons/present.svg?react";
 
 // const checklistItems = [
 //   { text: "чек-лист по пензликам", top: "4.1rem", left: "10.86rem" },
@@ -12,7 +12,7 @@ export function MakeupBonuses() {
   return (
     <section className={styles.bonuses}>
       <div className={styles.bonuses__badge}>
-        <PresentIron className={styles.bonuses__badgeIcon} />
+        <PresentIcon className={styles.bonuses__badgeIcon} />
         <p className={styles.bonuses__badgeText}>Ексклюзивна пропозиція</p>
       </div>
 

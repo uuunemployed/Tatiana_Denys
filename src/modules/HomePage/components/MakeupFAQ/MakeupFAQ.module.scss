@@ -1,0 +1,140 @@
+.faq {
+  background-color: #f5f5f5;
+  padding: 14.93rem 4.48rem; // (80px / 3.75) * 0.7
+  font-family: 'Arimo', sans-serif;
+
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 11.94rem; // 64px
+  }
+
+  &__title {
+    font-size: 8.21rem; // 44px
+    font-weight: 700;
+    margin-bottom: 0.74rem; // 4px
+    color: #111827;
+  }
+
+  &__subtitle {
+    font-size: 3.73rem; // 20px
+    color: #4b5563;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.98rem; // 16px
+  }
+
+  &__item {
+    background-color: #ffffff;
+    border: 0.18rem solid #e5e7eb;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 3.73rem 5.6rem rgba(0, 0, 0, 0.08);
+      border-color: rgba(66, 0, 0, 0.2);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4.48rem 5.97rem; // 24px / 32px
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+
+  &__questionText {
+    font-size: 3.73rem; // 20px
+    font-weight: 700;
+    color: #111827;
+    padding-right: 2.98rem;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: #420000;
+    width: 4.48rem; // 24px
+    height: 4.48rem;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+
+    &--open {
+      max-height: 74.6rem; // 400px
+    }
+  }
+
+  &__answerInner {
+    padding: 0.37rem 5.97rem 4.48rem; // 2px / 32px / 24px
+  }
+
+  &__answerText {
+    color: #374151;
+    line-height: 1.6;
+    font-size: 3.36rem; // 18px
+  }
+
+  &__contact {
+    margin-top: 8.96rem; // 48px
+    text-align: center;
+    background-color: #ffffff;
+    padding: 5.97rem; // 32px
+    border: 0.18rem solid #e5e7eb;
+    box-shadow: 0 1.86rem 3.73rem rgba(0, 0, 0, 0.05);
+  }
+
+  &__contactTitle {
+    font-size: 4.48rem; // 24px
+    font-weight: 700;
+    margin-bottom: 2.24rem; // 12px
+    color: #111827;
+  }
+
+  &__contactText {
+    font-size: 2.98rem; // 16px
+    color: #4b5563;
+    margin-bottom: 4.48rem; // 24px
+  }
+
+  &__instaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.49rem; // 8px
+    background: linear-gradient(to right, #9333ea, #db2777);
+    color: #ffffff;
+    padding: 2.98rem 5.97rem; // 16px / 32px
+    font-weight: 600;
+    font-size: 2.98rem; // 16px
+    text-decoration: none;
+    box-shadow: 0 0.74rem 1.49rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    svg {
+      width: 4.48rem;
+      height: 4.48rem;
+    }
+  }
+}

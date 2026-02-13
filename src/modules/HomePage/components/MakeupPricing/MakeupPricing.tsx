@@ -1,4 +1,5 @@
 import { Sectionheader } from '../../../../components/SectionHeader';
+import ArrowIcon from "../../../../shared/icons/iron.svg?react";
 import styles from './MakeupPricing.module.scss';
 
 export function MakeupPricing() {
@@ -64,7 +65,8 @@ export function MakeupPricing() {
           </div>
 
           <button className={styles.pricing__cta}>
-            Почати навчання
+            <p>Почати навчання</p>
+                    <ArrowIcon />
           </button>
         </div>
       </div>

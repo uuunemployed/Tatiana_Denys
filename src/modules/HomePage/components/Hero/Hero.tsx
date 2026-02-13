@@ -26,7 +26,7 @@ export const Hero = () => {
             </div>
             <div className={styles["hero__title--bottom"]}>
               <span className={styles["hero__title-letter"]}>S</span>
-              ECRETS
+              TART
             </div>
           </div>
           <span className={styles["hero__text-title"]}>
