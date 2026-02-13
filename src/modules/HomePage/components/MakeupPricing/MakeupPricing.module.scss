@@ -1,0 +1,130 @@
+.pricing {
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff, #f9fafb);
+  padding: 14.93rem 4.48rem; // 21.33 * 0.7
+  font-family: 'Arimo', sans-serif;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 11.94rem; // 17.06 * 0.7
+  }
+
+  &__title {
+    font-size: 8.21rem; // 11.73 * 0.7
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  &__card {
+    background-color: #fff;
+    box-shadow: 0 4.48rem 9.33rem rgba(0, 0, 0, 0.1);
+        // border-top: 0.74rem solid #420000; // 1.06 * 0.7
+    width: 100%;
+  }
+
+  &__cardInner {
+    padding: 6.67rem; // 10.66 * 0.7 / 8.53 * 0.7
+  }
+
+  &__planInfo {
+    margin-bottom: 5.97rem;
+  }
+
+  &__planTitle {
+    font-size: 4.8rem; // 8 * 0.7
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 2.24rem;
+  }
+
+  &__planDesc {
+    font-size: 3.2rem; // 4.26 * 0.7
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 5.97rem;
+  }
+
+  &__detailItem {
+    border-left: 0.74rem solid #420000;
+    padding-left: 4.48rem;
+  }
+
+  &__detailLabel {
+    font-size: 2.74rem; // 3.2 * 0.7
+    font-weight: 900;
+    color: #420000;
+    text-transform: uppercase;
+    margin-bottom: 1.49rem;
+  }
+
+  &__detailValue {
+    font-size: 3.2rem; // 4.26 * 0.7
+    color: #000;
+  }
+
+  &__bonusList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.86rem;
+  }
+
+  &__bonusItem {
+    font-size: 2.98rem;
+    color: #000;
+    display: flex;
+    gap: 1.49rem;
+    span:first-child { color: #420000; }
+  }
+
+  &__divider {
+    height: 0.37rem;
+    background-color: #f3f4f6;
+    margin: 4.27rem 0;
+  }
+
+  &__priceRow {
+    display: flex;
+    align-items: flex-end;
+    gap: 2.98rem;
+    margin-bottom: 5.97rem;
+  }
+
+  &__priceCurrent {
+    font-size: 9.2rem; // 16 * 0.7
+    font-weight: 900;
+  }
+
+  &__priceOld {
+    font-size: 4.48rem; // 6.4 * 0.7
+    color: #9ca3af;
+    text-decoration: line-through;
+    margin-bottom: 1.12rem;
+  }
+
+  &__cta {
+    width: 100%;
+    background-color: #420000;
+    color: #fff;
+    padding: 4.48rem 0; // 6.4 * 0.7
+    font-size: 4.27rem;
+    font-weight: 600;
+    border: none;
+    letter-spacing: 0.14rem;
+  }
+
+  &__trustBadge {
+    text-align: center;
+    margin-top: 7.46rem;
+    font-size: 2.42rem; // 3.46 * 0.7
+    color: #6b7280;
+  }
+}

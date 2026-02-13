@@ -1,0 +1,98 @@
+@use "../../../../styles/mixins" as *;
+
+.bonuses {
+  background-color: #420000;
+  padding: 21.33rem 6.4rem;
+  background-image: url(/images/lessons_background.png);
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  @include flex-column-center;
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.66rem 5.33rem;
+    border-radius: 100rem;
+    margin-bottom: 3.73rem;
+    color: #fff;
+  }
+
+  &__badgeText {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__title {
+    font-size: 10.66rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5.33rem;
+    color: #fff;
+  }
+
+  &__subtitle {
+    font-size: 4.4rem;
+    margin-bottom: 12.8rem;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5.33rem;
+    margin-bottom: 10.66rem;
+  }
+
+  &__text {
+    font-size: 4.26rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &__highlight {
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__videoWrapper {
+    width: 90%;
+    aspect-ratio: 9 / 16;
+    border-radius: 1.4rem;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+
+  // &__item {
+  //   position: absolute;
+  //   width: fit-content;
+  //   color: #0A0A0A;
+
+  //   display: flex; 
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 1.5rem; 
+
+  //   backdrop-filter: blur(20px);
+  //   background-color: #d1d5dbb6; 
+  //   border-radius: 100rem; 
+
+  //   font-weight: 600;
+  //   padding: 2.13rem 3.5rem; 
+  //   font-size: 3.73rem;
+  //   white-space: nowrap;
+  //   z-index: 10;
+  // }
+}

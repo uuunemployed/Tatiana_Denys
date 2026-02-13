@@ -39,8 +39,8 @@ export function MakeupExpert() {
             ))}
           </div>
           <div className={styles.expert__description}>
-            <p className={styles.expert__title}>Я ЕКСПЕРТ З БАГАТОРІЧНИМ</p>
-            <p className={styles.expert_subtitle}>ДОСВІДОМ В <br />Б'ЮТІ СФЕРІ</p>
+            <p className={styles.expert__title}>Я ЕКСПЕРТ З<br />БАГАТОРІЧНИМ</p>
+            <p className={styles.expert__subtitle}>ДОСВІДОМ В<br />Б'ЮТІ СФЕРІ</p>
           </div>
         </div>
         <img

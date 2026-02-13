@@ -8,7 +8,7 @@
     position: relative;
     width: 100%;
 
-    padding-bottom: 22.9rem;
+    padding-bottom: 12.9rem;
   }
 
   &__image {
@@ -40,7 +40,8 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-     gap: 1.6rem;
+    justify-content: space-between;
+    gap: 1.6rem;
     z-index: 3;
     width: fit-content;
     min-width: 32.66rem;
@@ -67,6 +68,7 @@
 
     &_desc {
       font-size: 3.2rem;
+      color: #420000;
     }
   }
 
@@ -74,5 +76,20 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  &__title {
+    color: #420000;
+    font-size: 6.4rem;
+    font-style: italic;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    font-size: 6.4rem;
+    color: #0A0A0A;
+    font-size: 6.4rem;
+    text-align: right;
   }
 }

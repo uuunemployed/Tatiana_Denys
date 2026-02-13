@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./MakeupLessons.module.scss";
+import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
+import ButtonIron from "../../../../shared/icons/iron.svg?react";
 
 const lessonsData = [
   {
@@ -49,8 +51,7 @@ const lessonsData = [
     ],
     result:
       "Опануєте техніки корекції форми обличчя та створення природного сяйва",
-    image:
-      "images/IMG_8252.PNG",
+    image: "images/IMG_8252.PNG",
   },
   {
     id: "04",
@@ -147,10 +148,17 @@ export function MakeupLessons() {
   return (
     <section className={styles.lessons}>
       <div className={styles.lessons__container}>
-        <h2 className={styles.lessons__top_subtitle}>
-          10 УРОКІВ ПО КОМПЛЕКСНОМУ МАКІЯЖУ
+        {/* <h2 className={styles.lessons__top_subtitle}>
+          Програма курсу
         </h2>
-        <p className={styles.lessons__top_title}>Програма курсу</p>
+        <p className={styles.lessons__top_title}>10 УРОКІВ ПО КОМПЛЕКСНОМУ МАКІЯЖУ</p> */}
+
+        <Sectionheader
+          subtitle="course program"
+          title="Програма курсу"
+          titleSub={null}
+          isTextWhite={true}
+        />
 
         <div className={styles.lessons__grid}>
           {lessonsData.map((lesson, index) => (
@@ -167,7 +175,7 @@ export function MakeupLessons() {
                 <ul className={styles.lessons__topics}>
                   {lesson.topics.map((topic, idx) => (
                     <li key={idx} className={styles.lessons__topic_item}>
-                      <span>↘</span>
+                      <ButtonIron style={{ transform: "rotate(45deg)", flexShrink: 0 }} />
                       <span className={styles.text_gray}>
                         {typeof topic === "string" ? (
                           topic

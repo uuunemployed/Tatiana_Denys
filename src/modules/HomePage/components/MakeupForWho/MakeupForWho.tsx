@@ -1,5 +1,6 @@
 import styles from "./MakeupForWho.module.scss";
 import ButtonIron from "../../../../shared/icons/iron.svg?react";
+import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
 
 const cardsData = [
   {
@@ -43,15 +44,7 @@ export function MakeupForWho() {
     <section className={styles["makeup-for-who"]}>
       <div className={styles["makeup-for-who__container"]}>
         <div className={styles["makeup-for-who__list"]}>
-          <header className={styles["makeup-for-who__header"]}>
-            <div className={styles["makeup-for-who__subtitle"]}>for what?</div>
-            <h2 className={styles["makeup-for-who__title"]}>
-              ДЛЯ КОГО
-              <span className={styles["makeup-for-who__title--sub"]}>
-                ПІДІЙДЕ КУРС?
-              </span>
-            </h2>
-          </header>
+          <Sectionheader subtitle='for what?' title='ДЛЯ КОГО' titleSub='ПІДІЙДЕ КУРС?' isStiky={true} />
           {cardsData.map((card, index) => (
             <article
               key={card.id}
