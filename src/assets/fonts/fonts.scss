@@ -5,3 +5,12 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+    font-family: 'Nyght Serif';
+    /* Шлях до файлу у вашому проекті */
+    src: url('./NyghtSerif-LightItalic.woff2') format('woff2');
+    font-weight: 300; /* Dark версія зазвичай має велику вагу */
+    font-style: normal;
+    font-display: swap;
+}

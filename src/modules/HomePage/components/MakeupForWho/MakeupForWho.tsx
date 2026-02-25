@@ -1,41 +1,24 @@
 import styles from "./MakeupForWho.module.scss";
-import ButtonIron from "../../../../shared/icons/iron.svg?react";
 import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
+import { MakeupButton } from "../../../../components/MakeupButton/MakeupButton";
 
 const cardsData = [
   {
     id: "01",
-    title: "ХТО РОБИТЬ МАКІЯЖ ДЛЯ СЕБЕ:",
+    title: "ДЛЯ НОВАЧКІВ БЕЗ ДОСВІДУ",
     description:
-      "вам важко зрозуміти як підібрати правильний тон, навчитися контурингу, робити стійкий макіяж. Ви навчитеся всім базовим і просунутим технікам",
+      "Ви не розумієте як підібрати тональний, як правильно робити корекцію та підкреслювати очі—цей курс для вас. Він навчить вас базі.",
   },
-
   {
     id: "02",
-    title: "ХТО НЕ ЗНАЄ, ЯКУ КОСМЕТИКУ ОБРАТИ:",
+    title: "ДЛЯ ТИХ, У КОГО ОБМАЛЬ ЧАСУ",
     description:
-      "ви дізнаєтеся які продукти найкраще підходять для вашого типу шкіри, як їх правильно підбирати і комбінувати для досягнення бажаного результату",
+      "Ви студентка або мама в декреті, яка не має вільних більше 15 хвилин на день. У вас нема часу розбиратися з косметикою та дивитися годинні уроки—цей курс для вас. Уроки тривалістю 15хв та чек-листи, в яких я зібрала косметичку за вас.",
   },
-
   {
     id: "03",
-    title: "ХТО ХОЧЕ НАВЧИТИСЬ РОБИТИ МАКІЯЖ ШВИДКО І ЯКІСНО:",
-    description:
-      "ви отримаєте перевірені алгоритми і техніки, які допоможуть створювати ідеальний макіяж за мінімальний час без шкоди для якості",
-  },
-
-  {
-    id: "04",
-    title: "ХТО ХОЧЕ ВИГЛЯДАТИ ВПЕВНЕНО:",
-    description:
-      "навчитеся підкреслювати свої переваги і приховувати недоліки, створювати образи які підходять саме вам і відчувати себе комфортно",
-  },
-
-  {
-    id: "05",
-    title: "ХТО ХО'ЧЕ ПОЧАТИ КАР'ЄРУ ВІЗАЖИСТА:",
-    description:
-      "ви отримаєте базові знання, навчитеся технікам макіяжу, дізнаєтеся про секрети і тонкощі та побудуєте власне портфоліо",
+    title: "ДЛЯ ТИХ, ХТО МАЄ ДОСВІД, АЛЕ НЕ ВИХОДИТЬ БАЖАНИЙ РЕЗУЛЬТАТ ",
+    description: "Ви витрачаєте гроші на продукти, які не працюють із вашими проблемами, плутаєтеся в пензлях та завжди малюєте різні стрілки. Ці уроки для вас. Після перегляду ви оптимізуєте свою косметичку та отримаєте сотні компліментів вашим стрілкам.",
   },
 ];
 
@@ -43,24 +26,30 @@ export function MakeupForWho() {
   return (
     <section className={styles["makeup-for-who"]}>
       <div className={styles["makeup-for-who__container"]}>
+        <div className={styles["makeup-for-who__sidebar"]}>
+          <Sectionheader
+            subtitle="for what?"
+            title="ДЛЯ КОГО"
+            titleSub="ПІДІЙДЕ КУРС?"
+            isStiky={true}
+          />
+        </div>
+
         <div className={styles["makeup-for-who__list"]}>
-          <Sectionheader subtitle='for what?' title='ДЛЯ КОГО' titleSub='ПІДІЙДЕ КУРС?' isStiky={true} />
           {cardsData.map((card, index) => (
             <article
               key={card.id}
               className={styles["makeup-for-who__card"]}
-              style={{ top: `${160 + index * 40}px` }}
+              style={{ "--index": index } as React.CSSProperties}
             >
+              <span className={styles["makeup-for-who__card-number"]}>
+                {card.id}
+              </span>
               <div className={styles["makeup-for-who__card-content"]}>
-                <div className={styles["makeup-for-who__card-header"]}>
-                  <span className={styles["makeup-for-who__card-number"]}>
-                    {card.id}
-                  </span>
                   <h3 className={styles["makeup-for-who__card-title"]}>
                     {card.title}
                   </h3>
-                </div>
-                <p className={styles["makeup-for-who__card-description"]}>
+                                  <p className={styles["makeup-for-who__card-description"]}>
                   {card.description}
                 </p>
               </div>
@@ -69,14 +58,7 @@ export function MakeupForWho() {
         </div>
 
         <div className={styles["makeup-for-who__cta"]}>
-          <button className={styles["makeup-for-who__button"]}>
-            Хочу на курс
-            <ButtonIron
-              height={20}
-              width={20}
-              className={styles["makeup-for-who__button-icon"]}
-            />
-          </button>
+          <MakeupButton title="хочу на курс" />
         </div>
       </div>
     </section>

@@ -20,8 +20,8 @@ const lessonsData = [
       { text: "Базові інструменти: ", bold: "пензлі та спонжі" },
     ],
     result:
-      "Навчитеся уникати поширених помилок у макіяжі, дізнаєтеся, які засоби необхідні для базового макіяжу, як правильно підібрати косметику під свій тип шкіри, як визначити свій колортип і використовувати це для створення гармонійного образу",
-    image: "images/IMG_8245.PNG",
+      "Визначите свій тип шкіри за 2 хвилини. Оберете для себе засоби під макіяж. Навчитеся перекривати кольорові недоліки на обличчі",
+    image: "images/lesson-photo-1.PNG",
   },
   {
     id: "02",
@@ -38,7 +38,7 @@ const lessonsData = [
     ],
     result:
       "Навчитеся обирати ідеальний відтінок тонального засобу та формулу відповідно до типу шкіри",
-    image: "images/IMG_8251.JPG",
+    image: "images/lesson-photo-2.JPG",
   },
   {
     id: "03",
@@ -51,7 +51,7 @@ const lessonsData = [
     ],
     result:
       "Опануєте техніки корекції форми обличчя та створення природного сяйва",
-    image: "images/IMG_8252.PNG",
+    image: "images/lesson-photo-3.PNG",
   },
   {
     id: "04",
@@ -64,7 +64,7 @@ const lessonsData = [
     result:
       "Навчитеся створювати ідеальну форму брів та природно їх заповнювати",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-4.JPG",
   },
   {
     id: "05",
@@ -77,7 +77,7 @@ const lessonsData = [
     result:
       "Освоїте основні техніки макіяжу очей та навчитеся підбирати кольори",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-5.JPG",
   },
   {
     id: "06",
@@ -89,7 +89,7 @@ const lessonsData = [
     ],
     result: "Навчитеся малювати різні види стрілок відповідно до форми очей",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-6.JPG",
   },
   {
     id: "07",
@@ -102,7 +102,7 @@ const lessonsData = [
     result:
       "Опануєте техніки створення ідеальної форми губ та стійкого макіяжу",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-7.JPG",
   },
   {
     id: "08",
@@ -114,7 +114,7 @@ const lessonsData = [
     ],
     result: "Навчитеся створювати легкий та природний денний макіяж",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-8.JPG",
   },
   {
     id: "09",
@@ -126,7 +126,7 @@ const lessonsData = [
     ],
     result: "Освоїте створення ефектного вечірнього макіяжу",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-9.JPG",
   },
   {
     id: "10",
@@ -138,21 +138,34 @@ const lessonsData = [
     ],
     result: "Дізнаєтеся про типові помилки та навчитеся їх уникати",
     image:
-      "https://images.unsplash.com/photo-1585049303349-6680e6179692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWtldXAlMjB0dXRvcmlhbCUyMHdvbWFuJTIwYmVhdXR5fGVufDF8fHx8MTc3MDI5NDA5NXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      "images/lesson-photo-10.JPG",
   },
 ];
 
+interface Topic {
+  text: string;
+  bold?: string;
+  rest?: string;
+}
+
+interface Lesson {
+  id: string;
+  title: string;
+  topics: (string | Topic)[]; // Тема може бути або рядком, або об'єктом
+  result: string;
+  image: string;
+}
+
 export function MakeupLessons() {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
+
+  // Явно вказуємо тип масиву для slice
+  const visibleLessons: Lesson[] = (lessonsData as Lesson[]).slice(0, 3);
+  const hiddenLessons: Lesson[] = (lessonsData as Lesson[]).slice(3);
 
   return (
     <section className={styles.lessons}>
       <div className={styles.lessons__container}>
-        {/* <h2 className={styles.lessons__top_subtitle}>
-          Програма курсу
-        </h2>
-        <p className={styles.lessons__top_title}>10 УРОКІВ ПО КОМПЛЕКСНОМУ МАКІЯЖУ</p> */}
-
         <Sectionheader
           subtitle="course program"
           title="Програма курсу"
@@ -161,64 +174,82 @@ export function MakeupLessons() {
         />
 
         <div className={styles.lessons__grid}>
-          {lessonsData.map((lesson, index) => (
-            <div
-              key={lesson.id}
-              className={`${styles.lessons__card} ${index >= 3 && !showAll ? styles.hiddenCard : ""}`}
-            >
-              <div className={styles.lessons__card_header}>
-                <div className={styles.lessons__card_info}>
-                  <span className={styles.lessons__card_id}>{lesson.id}/</span>
-                  <h3 className={styles.lessons__card_name}>{lesson.title}</h3>
-                </div>
+          {visibleLessons.map((lesson) => (
+            <LessonCard key={lesson.id} lesson={lesson} />
+          ))}
 
-                <ul className={styles.lessons__topics}>
-                  {lesson.topics.map((topic, idx) => (
-                    <li key={idx} className={styles.lessons__topic_item}>
-                      <ButtonIron style={{ transform: "rotate(45deg)", flexShrink: 0 }} />
-                      <span className={styles.text_gray}>
-                        {typeof topic === "string" ? (
-                          topic
-                        ) : (
-                          <>
-                            {topic.text}
-                            {topic.bold && (
-                              <span className={styles.bold}>{topic.bold}</span>
-                            )}
-                            {topic.rest && topic.rest}
-                          </>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={styles.lessons__image_container}>
-                <img
-                  src={lesson.image}
-                  alt=""
-                  className={styles.lessons__image}
-                />
-              </div>
-
-              <div className={styles.lessons__result_section}>
-                <h4 className={styles.lessons__result_label}>РЕЗУЛЬТАТ</h4>
-                <p className={styles.lessons__result_text}>{lesson.result}</p>
+          <div
+            className={`${styles.lessons__expandable} ${showAll ? styles.expanded : ""}`}
+          >
+            <div className={styles.lessons__expandable_inner}>
+              <div className={styles.lessons__hidden_list}>
+                {hiddenLessons.map((lesson) => (
+                  <LessonCard key={lesson.id} lesson={lesson} />
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
         <div className={styles.lessons__footer}>
           <button
-            onClick={() => setShowAll((p) => !p)}
+            onClick={() => setShowAll(!showAll)}
             className={styles.lessons__btn}
           >
-            {showAll ? "меньше" : "більше"}
+            {showAll ? "менше" : "більше"}
           </button>
         </div>
       </div>
     </section>
+  );
+}
+
+// Типізуємо пропси для LessonCard
+function LessonCard({ lesson }: { lesson: Lesson }) {
+  return (
+    <div className={styles.lessons__card}>
+      <div className={styles.lessons__card_header}>
+        <div className={styles.lessons__card_info}>
+          <span className={styles.lessons__card_id}>{lesson.id}/</span>
+          <h3 className={styles.lessons__card_name}>{lesson.title}</h3>
+        </div>
+
+        <ul className={styles.lessons__topics}>
+          {lesson.topics.map((topic, idx) => (
+            <li key={idx} className={styles.lessons__topic_item}>
+              <ButtonIron
+                style={{ transform: "rotate(45deg)", flexShrink: 0 }}
+              />
+              <span className={styles.text_gray}>
+                {typeof topic === "string" ? (
+                  topic
+                ) : (
+                  <>
+                    {topic.text}
+                    {topic.bold && (
+                      <span className={styles.bold}>{topic.bold}</span>
+                    )}
+                    {topic.rest && topic.rest}
+                  </>
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={styles.lessons__image_container}>
+        <img
+          src={lesson.image}
+          alt={lesson.title}
+          className={styles.lessons__image}
+        />
+      </div>
+
+      <div className={styles.lessons__result_section}>
+        <h4 className={styles.lessons__result_label}>РЕЗУЛЬТАТ</h4>
+        <p className={styles.lessons__result_text}>{lesson.result}</p>
+      </div>
+    </div>
   );
 }

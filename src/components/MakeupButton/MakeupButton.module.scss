@@ -1,0 +1,35 @@
+@use "../../styles/mixins" as *;
+
+.makeup__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.2rem; // 12 / 3.75
+  background-color: #420000;
+  border: 1px solid #ffffff;
+  color: #fff;
+  padding: 4.26rem 8.53rem; // 16 / 3.75, 32 / 3.75
+  border-radius: 266.66rem; // 9999 / 3.75
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 4.27rem;
+
+  &:hover {
+    background-color: #3d0f14;
+
+    .makeup-for-who__button-icon {
+      transform: translateX(1.33rem); // 5 / 3.75
+    }
+  }
+
+  @include onTablet {
+    padding: 1.51rem 2.57rem;
+    font-size: 1.11rem;
+    gap: 1rem;
+  }
+
+  &-icon {
+    transition: transform 0.3s ease;
+  }
+}
