@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../dist")));
 
 // Усі запити, що не стосуються API, перенаправляємо на index.html
-app.get("*", (req, res, next) => {
+app.get("(.*)", (req, res, next) => {
   if (req.path.startsWith('/create-payment')) return next();
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
