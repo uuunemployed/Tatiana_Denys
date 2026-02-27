@@ -1,8 +1,4 @@
-@mixin onTablet {
-  @media (min-width: 480px) {
-    @content;
-  }
-}
+@use './variables' as *;
 
 @mixin onDesktop {
   @media (min-width: 1200px) {
@@ -10,16 +6,55 @@
   }
 }
 
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin onTablet {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
 @mixin inline-padding {
   padding-inline: 24px;
-
   @include onTablet {
     padding-inline: 4.17rem;
   }
 }
 
-@mixin flex-column-center {
+@mixin flex-center {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@mixin fluid-text($mob, $tab) {
+  font-size: $mob;
+  @include onTablet {
+    font-size: $tab;
+  }
+}
+
+@mixin card-style($padding: 4.26rem, $bg: $color-white) {
+  background-color: $bg;
+  padding: $padding;
+  box-shadow: $shadow-standard;
+  border: 1px solid #f3f4f6;
+  @include onTablet {
+    padding: 1.74rem;
+  }
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 100rem;
+  transition: $transition-base;
+  cursor: pointer;
+  text-decoration: none;
 }

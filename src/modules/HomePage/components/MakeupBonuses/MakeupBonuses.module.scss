@@ -1,58 +1,120 @@
+@use "../../../../styles/variables" as *;
 @use "../../../../styles/mixins" as *;
 
 .bonuses {
   background-color: #420000;
-  padding: 21.33rem 6.4rem;
   background-image: url(/images/lessons_background.png);
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 100% auto;
+
   @include flex-column-center;
+  @include inline-padding;
+  gap: 10.66rem;
+  padding-block: 21.33rem;
+
+  @include onTablet {
+    padding-block: 9.72rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0; // Скидаємо gap для точного позиціонування по сітці
+  }
+
+  &__top-content {
+    @include flex-center;
+
+    @include onTablet {
+      grid-column: 2 / 6; // Розширив до середини, щоб текст мав місце
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
 
   &__badge {
     display: inline-flex;
     align-items: center;
     gap: 3.2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 0 15px rgba(255, 255, 255, 0.05),
+      0 4px 15px rgba(0, 0, 0, 0.1);
+    // ------------------
+
     padding: 2.66rem 5.33rem;
     border-radius: 100rem;
     margin-bottom: 3.73rem;
-    color: #fff;
+    color: $color-white;
+
+    transition: all $transition-base;
+
+    @include onTablet {
+      gap: 0.83rem;
+      padding: 0.69rem 1.39rem;
+      margin-bottom: 1.39rem;
+      border-width: 0.5px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow:
+        inset 0 0 20px rgba(255, 255, 255, 0.1),
+        0 8px 20px rgba(0, 0, 0, 0.15);
+    }
   }
 
   &__badgeText {
-    font-size: 3.2rem;
+    @include fluid-text(3.2rem, 0.83rem);
     text-transform: uppercase;
     font-weight: 600;
   }
 
   &__title {
-    font-size: 10.66rem;
+    @include fluid-text(10.66rem, 5.56rem);
     font-weight: 700;
     line-height: 1;
     margin-bottom: 5.33rem;
     color: #fff;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 1.39rem;
+      text-align: left;
+    }
   }
 
   &__subtitle {
-    font-size: 4.4rem;
-    margin-bottom: 12.8rem;
+    @include fluid-text(4.4rem, 1.67rem);
+    margin-bottom: 9.6rem;
     color: #fff;
     width: 100%;
     text-align: center;
+
+    @include onTablet {
+      margin-bottom: 4.17rem;
+      text-align: left;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 5.33rem;
-    margin-bottom: 10.66rem;
+    gap: 2.13rem;
+    text-align: center;
+
+    @include onTablet {
+      gap: 1.39rem;
+      text-align: left;
+      max-width: 44rem;
+    }
   }
 
   &__text {
-    font-size: 4.26rem;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.9);
+    color: $color-white;
   }
 
   &__highlight {
@@ -64,35 +126,55 @@
     width: 90%;
     aspect-ratio: 9 / 16;
     border-radius: 1.4rem;
-    overflow: hidden;
     background: #fff;
     position: relative;
+    background-color: #000000;
+
+    @include onTablet {
+      grid-column: 9 / 12;
+      width: 100%;
+    }
   }
 
   &__video {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
   }
 
-  // &__item {
-  //   position: absolute;
-  //   width: fit-content;
-  //   color: #0A0A0A;
+&__item {
+    position: absolute;
+    z-index: 20;
+    white-space: nowrap;
+    
+    // Дизайн "Скло"
+    color: $color-white;
+    font-weight: 600;
+    @include fluid-text(3.4rem, 0.9rem);
+    padding: 2.5rem 4rem;
+    border-radius: 100rem;
+    
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    box-shadow: 
+      $shadow-standard, 
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
 
-  //   display: flex; 
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 1.5rem; 
+    // Оптимізація для GPU
+    will-change: transform;
+    
+    // Transition тільки для hover-ефектів, не для transform!
+    transition: background-color 0.3s, border-color 0.3s;
 
-  //   backdrop-filter: blur(20px);
-  //   background-color: #d1d5dbb6; 
-  //   border-radius: 100rem; 
+    @include onTablet {
+      padding: 0.8rem 1.5rem;
+    }
 
-  //   font-weight: 600;
-  //   padding: 2.13rem 3.5rem; 
-  //   font-size: 3.73rem;
-  //   white-space: nowrap;
-  //   z-index: 10;
-  // }
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+  }
 }

@@ -2,6 +2,22 @@ import { useState } from "react";
 import styles from "./MakeupLessons.module.scss";
 import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
 import ButtonIron from "../../../../shared/icons/iron.svg?react";
+import { Button } from "../../../../components/MakeupButton/MakeupButton";
+
+// Типізація винесена для чистоти
+interface Topic {
+  text: string;
+  bold?: string;
+  rest?: string;
+}
+
+interface Lesson {
+  id: string;
+  title: string;
+  topics: (string | Topic)[];
+  result: string;
+  image: string;
+}
 
 const lessonsData = [
   {
@@ -63,8 +79,7 @@ const lessonsData = [
     ],
     result:
       "Навчитеся створювати ідеальну форму брів та природно їх заповнювати",
-    image:
-      "images/lesson-photo-4.JPG",
+    image: "images/lesson-photo-4.JPG",
   },
   {
     id: "05",
@@ -76,8 +91,7 @@ const lessonsData = [
     ],
     result:
       "Освоїте основні техніки макіяжу очей та навчитеся підбирати кольори",
-    image:
-      "images/lesson-photo-5.JPG",
+    image: "images/lesson-photo-5.JPG",
   },
   {
     id: "06",
@@ -88,8 +102,7 @@ const lessonsData = [
       { text: "Секрети стійкості підводки" },
     ],
     result: "Навчитеся малювати різні види стрілок відповідно до форми очей",
-    image:
-      "images/lesson-photo-6.JPG",
+    image: "images/lesson-photo-6.JPG",
   },
   {
     id: "07",
@@ -101,8 +114,7 @@ const lessonsData = [
     ],
     result:
       "Опануєте техніки створення ідеальної форми губ та стійкого макіяжу",
-    image:
-      "images/lesson-photo-7.JPG",
+    image: "images/lesson-photo-7.JPG",
   },
   {
     id: "08",
@@ -113,8 +125,7 @@ const lessonsData = [
       { text: "Мінімалістичний підхід до макіяжу" },
     ],
     result: "Навчитеся створювати легкий та природний денний макіяж",
-    image:
-      "images/lesson-photo-8.JPG",
+    image: "images/lesson-photo-8.JPG",
   },
   {
     id: "09",
@@ -125,8 +136,7 @@ const lessonsData = [
       { text: "Секрети стійкості вечірнього макіяжу" },
     ],
     result: "Освоїте створення ефектного вечірнього макіяжу",
-    image:
-      "images/lesson-photo-9.JPG",
+    image: "images/lesson-photo-9.JPG",
   },
   {
     id: "10",
@@ -137,31 +147,14 @@ const lessonsData = [
       { text: "Лайфхаки для ідеального результату" },
     ],
     result: "Дізнаєтеся про типові помилки та навчитеся їх уникати",
-    image:
-      "images/lesson-photo-10.JPG",
+    image: "images/lesson-photo-10.JPG",
   },
 ];
 
-interface Topic {
-  text: string;
-  bold?: string;
-  rest?: string;
-}
-
-interface Lesson {
-  id: string;
-  title: string;
-  topics: (string | Topic)[]; // Тема може бути або рядком, або об'єктом
-  result: string;
-  image: string;
-}
-
 export function MakeupLessons() {
-  const [showAll, setShowAll] = useState<boolean>(false);
-
-  // Явно вказуємо тип масиву для slice
-  const visibleLessons: Lesson[] = (lessonsData as Lesson[]).slice(0, 3);
-  const hiddenLessons: Lesson[] = (lessonsData as Lesson[]).slice(3);
+  const [showAll, setShowAll] = useState(false);
+  const visibleLessons = lessonsData.slice(0, 3);
+  const hiddenLessons = lessonsData.slice(3);
 
   return (
     <section className={styles.lessons}>
@@ -169,8 +162,7 @@ export function MakeupLessons() {
         <Sectionheader
           subtitle="course program"
           title="Програма курсу"
-          titleSub={null}
-          isTextWhite={true}
+          isTextWhite
         />
 
         <div className={styles.lessons__grid}>
@@ -192,19 +184,19 @@ export function MakeupLessons() {
         </div>
 
         <div className={styles.lessons__footer}>
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className={styles.lessons__btn}
+          <Button
+            variant="lessons"
+            showIcon={false}
+            onClick={() => setShowAll(!showAll)} 
           >
             {showAll ? "менше" : "більше"}
-          </button>
+          </Button>
         </div>
       </div>
     </section>
   );
 }
 
-// Типізуємо пропси для LessonCard
 function LessonCard({ lesson }: { lesson: Lesson }) {
   return (
     <div className={styles.lessons__card}>
@@ -229,7 +221,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
                     {topic.bold && (
                       <span className={styles.bold}>{topic.bold}</span>
                     )}
-                    {topic.rest && topic.rest}
+                    {topic.rest}
                   </>
                 )}
               </span>

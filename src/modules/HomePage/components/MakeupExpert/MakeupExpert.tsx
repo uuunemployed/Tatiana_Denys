@@ -38,15 +38,23 @@ export function MakeupExpert() {
               </div>
             ))}
           </div>
+          
           <div className={styles.expert__description}>
-            <p className={styles.expert__title}>Я ЕКСПЕРТ З<br />БАГАТОРІЧНИМ</p>
-            <p className={styles.expert__subtitle}>ДОСВІДОМ В<br />Б'ЮТІ СФЕРІ</p>
+            <p className={styles.expert__title}>
+              Я ЕКСПЕРТ З<br className={styles.mobile_br} />
+              БАГАТОРІЧНИМ
+            </p>
+            <p className={styles.expert__subtitle}>
+              ДОСВІДОМ В<br className={styles.mobile_br} />
+              Б'ЮТІ СФЕРІ
+            </p>
           </div>
         </div>
+
         <img
           className={styles.expert__image}
           src="images/expert-image.png"
-          alt=""
+          alt="Expert"
         />
       </div>
     </section>

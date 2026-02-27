@@ -1,9 +1,10 @@
+@use "../../../../styles/variables" as *;
 @use "../../../../styles/mixins" as *;
 
 .makeup-for-who {
   padding: 21.33rem 0;
   @include inline-padding;
-  background-color: #f5f5f5;
+  background-color: $color-bg-light;
 
   @include onTablet {
     padding-top: 9.72rem;
@@ -44,8 +45,9 @@
   }
 
   &__list {
-    @include flex-column-center;
+    @include flex-center;
     gap: 4rem;
+    
     @include onTablet {
       margin: 0;
       grid-column: 3 / 5;
@@ -68,55 +70,43 @@
   }
 
   &__card {
+    @include card-style(6.67rem);
     position: sticky;
     top: calc(10rem + (var(--index) * 4rem));
-    background-color: #fff;
-    border: 0.26rem solid #d1d5db;
-    padding: 6.67rem;
-    box-shadow: 0 1.06rem 1.6rem -0.26rem rgba(0, 0, 0, 0.1);
     display: flex;
     gap: 13.06rem;
+    border: 0.26rem solid $color-gray-light;
 
     @include onTablet {
       position: static;
-      padding: 1.74rem;
+      gap: 13.06rem; // Зменшено для кращого вигляду на планшеті
     }
 
     &-number {
-      font-size: 4rem;
       color: #9ca3af;
-      @include onTablet {
-        font-size: 1.11rem;;
-      }
     }
 
     &-content {
       display: flex;
       flex-direction: column;
       gap: 5.33rem;
+      @include onTablet { gap: 1rem; }
     }
 
     &-title {
-      font-size: 4.8rem;
+      @include fluid-text(4.8rem, 1.39rem);
       font-weight: 700;
       text-align: right;
-      @include onTablet {
-        font-size: 1.39rem;;
-        text-align: left;
-      }
+      @include onTablet { text-align: left; }
     }
 
     &-description {
-      font-size: 4rem;
-      color: #4b5563;
+      color: $color-gray-dark;
       margin-left: -18rem;
       line-height: 1.12;
       font-weight: 400;
 
-      @include onTablet {
-        margin-left: 0;
-        font-size: 1.11rem;
-      }
+      @include onTablet { margin-left: 0; }
     }
   }
 }

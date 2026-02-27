@@ -1,15 +1,29 @@
+import React from "react";
 import styles from "./MakeupButton.module.scss";
 import ButtonIron from "../../shared/icons/iron.svg?react";
 
-export const MakeupButton = ({ title }: { title: string }) => {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "hero" | "action" | "lessons";
+  children: React.ReactNode;
+  showIcon?: boolean;
+}
+
+export const Button = ({
+  children,
+  variant = "action",
+  showIcon = true,
+  className = "",
+  ...props 
+}: ButtonProps) => {
+  const buttonClass = `${styles.btn} ${styles[`btn--${variant}`]} ${className}`;
+
   return (
-    <button className={styles.makeup__button}>
-      {title}
-      <ButtonIron
-        height={20}
-        width={20}
-        className={styles["makeup__button-icon"]}
-      />
+    <button 
+      className={buttonClass} 
+      {...props} 
+    >
+      {children}
+      {showIcon && <ButtonIron className={styles.btn__icon} />}
     </button>
   );
 };

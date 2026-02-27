@@ -1,31 +1,20 @@
 import styles from "./Hero.module.scss";
 import MenuIcon from "../../../../shared/icons/menu.svg?react";
-import ButtonIron from "../../../../shared/icons/iron.svg?react";
 import { useState } from "react";
 import { Menu } from "../Menu";
+import { Button } from "../../../../components/MakeupButton/MakeupButton";
 
 export const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <section className={styles.hero}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          height: "100%",
-          width: "100%",
-        }}
-      >
+      {/* Додав клас замість inline-styles для чистоти */}
+      <div className={styles.hero__inner}>
         <header className={styles.hero__header}>
-          {/* <h1 className={styles["hero__header-title"]}>Tatiana</h1> */}
-          <MenuIcon
-            onClick={() => {
-              setIsMenuOpen((p) => (p = !p));
-            }}
-          />
+          <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </header>
+
         <div className={styles.hero__content}>
           <div className={styles.hero__title}>
             <div className={styles["hero__title-content"]}>
@@ -42,6 +31,7 @@ export const Hero = () => {
               від нуля до впевненості
             </span>
           </div>
+
           <div className={styles.hero__description}>
             <p className={styles["hero__description-top"]}>
               Доступ одразу після оплати
@@ -51,10 +41,12 @@ export const Hero = () => {
               щоденного життя без перенавантаження косметикою, складних технік
               та дорогих продуктів.
             </p>
-            <button className={styles.hero__button}>
+            <Button
+              variant="hero"
+              onClick={() => console.log("Відкрити форму реєстрації")}
+            >
               Почати навчання
-              <ButtonIron />
-            </button>
+            </Button>
           </div>
         </div>
       </div>

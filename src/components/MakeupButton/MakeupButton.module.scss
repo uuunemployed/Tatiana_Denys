@@ -1,35 +1,74 @@
+@use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-.makeup__button {
-  display: inline-flex;
-  align-items: center;
-  gap: 3.2rem; // 12 / 3.75
-  background-color: #420000;
-  border: 1px solid #ffffff;
-  color: #fff;
-  padding: 4.26rem 8.53rem; // 16 / 3.75, 32 / 3.75
-  border-radius: 266.66rem; // 9999 / 3.75
-  font-weight: 500;
-  border: none;
+.btn {
+  @include button-base;
+  @include fluid-text(4.26rem, 1.11rem);
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 4.27rem;
+  transition: all 0.3s ease;
+  border: none;
+  color: $color-white;
 
-  &:hover {
-    background-color: #3d0f14;
+  &__icon {
+    width: 5.33rem; 
+    height: 5.33rem;
+    transition: transform 0.3s ease;
 
-    .makeup-for-who__button-icon {
-      transform: translateX(1.33rem); // 5 / 3.75
+    @include onTablet {
+      width: 1.39rem; 
+      height: 1.39rem;
     }
   }
 
-  @include onTablet {
-    padding: 1.51rem 2.57rem;
-    font-size: 1.11rem;
-    gap: 1rem;
+  &:hover {
+    .btn__icon {
+      transform: translateX(1.33rem);
+    }
   }
 
-  &-icon {
-    transition: transform 0.3s ease;
+  &--hero {
+    background-color: transparent;
+    color: $color-white;
+    border: 1px solid $color-white;
+    padding: 4.26rem 8.52rem;
+    gap: 3.2rem;
+
+    @include onTablet {
+      background-color: $color-primary;
+      border: none;
+      padding: 1.51rem 2.57rem;
+      gap: 1rem;
+    }
+  }
+
+  &--action {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: 4.26rem 8.53rem;
+    border-radius: 266.66rem;
+    gap: 3.2rem;
+
+    &:hover {
+      background-color: lighten($color-primary, 5%);
+    }
+
+    @include onTablet {
+      padding: 1.51rem 2.57rem;
+      gap: 1rem;
+    }
+  }
+
+
+  &--lessons {
+    background-color: transparent;
+    border: 1px solid $color-white;
+    padding: 4.26rem 6.4rem;
+    text-transform: lowercase;
+
+    @include onTablet {
+      padding: 1.94rem;
+    }
+     
   }
 }

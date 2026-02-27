@@ -1,3 +1,4 @@
+@use "../src/styles/variables" as *;
 @use "../src/styles/mixins" as *;
 
 * {
@@ -6,24 +7,22 @@
   padding: 0;
 }
 
-html {
-  font-size: 1vw;
-}
+html { font-size: 1vw; }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
   line-height: 1.12;
-  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: $color-black;
+  background-color: $color-white;
+  @include fluid-text(4rem, 1.11rem);
 }
 
 svg {
-  width: 5.33rem;
-  height: 5.33rem;
-
-  @include onTablet {
-    width: 1.12rem;
-    height: 1.12rem;
-  }
+  @include fluid-text(5.33rem, 1.12rem);
+  width: 1em;
+  height: 1em;
 }
+
+.text_gray { color: $color-gray-light; }
+.bold { font-weight: 700; }

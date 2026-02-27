@@ -50,7 +50,7 @@ export function MakeupPricing() {
       };
 
       // Робимо запит на твій Node.js сервер
-      const response = await fetch("http://localhost:3000/create-payment", {
+      const response = await fetch("https://tatiana-denys.onrender.com/create-payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
