@@ -136,11 +136,13 @@ app.post("/create-payment", (req, res) => {
   }
 });
 
-app.get("/:splat*", (req, res, next) => {
-  // Пропускаємо API запити, щоб вони не перехоплювалися
-  if (req.path.startsWith('/create-payment')) return next();
-  
-  // Роздаємо фронтенд
+app.get('*', (req, res, next) => {
+  // 1. Якщо це запит до API, пропускаємо його далі до обробника POST
+  if (req.path.startsWith('/create-payment')) {
+    return next();
+  }
+
+  // 2. Для всього іншого віддаємо фронтенд
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
