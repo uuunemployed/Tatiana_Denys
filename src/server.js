@@ -15,13 +15,6 @@ const __dirname = path.dirname(__filename);
 
 // Вказуємо папку зі зібраним фронтендом (зазвичай dist у Vite)
 app.use(express.static(path.join(__dirname, "../dist")));
-
-// Усі запити, що не стосуються API, перенаправляємо на index.html
-app.get("(.*)", (req, res, next) => {
-  if (req.path.startsWith('/create-payment')) return next();
-  res.sendFile(path.join(__dirname, "../dist", "index.html"));
-});
-
 app.use(bodyParser.json());
 
 const MERCHANT_ACCOUNT = process.env.WFP_ACCOUNT;
@@ -141,6 +134,14 @@ app.post("/create-payment", (req, res) => {
     console.error(error);
     res.status(500).send("Помилка генерації оплати");
   }
+});
+
+app.get("/:splat*", (req, res, next) => {
+  // Пропускаємо API запити, щоб вони не перехоплювалися
+  if (req.path.startsWith('/create-payment')) return next();
+  
+  // Роздаємо фронтенд
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 10000;
