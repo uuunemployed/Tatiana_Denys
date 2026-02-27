@@ -14,6 +14,10 @@ const MERCHANT_DOMAIN = process.env.WFP_DOMAIN;
 const SECRET_KEY = process.env.WFP_SECRET;
 const API = process.env.WFP_API_URL;
 
+app.get("/", (req, res) => {
+  res.send("Сервер працює! API для WayForPay налаштовано.");
+});
+
 app.post("/create-payment", (req, res) => {
   try {
     // 1. Отримуємо дані від клієнта (фронтенд)
