@@ -3,20 +3,31 @@ import crypto from "crypto";
 import bodyParser from "body-parser";
 import cors from "cors";
 import "dotenv/config";
+import path from "path";
+import { fileURLToPath } from "url";
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Вказуємо папку зі зібраним фронтендом (зазвичай dist у Vite)
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// Усі запити, що не стосуються API, перенаправляємо на index.html
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith('/create-payment')) return next();
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
+});
+
 app.use(bodyParser.json());
 
 const MERCHANT_ACCOUNT = process.env.WFP_ACCOUNT;
 const MERCHANT_DOMAIN = process.env.WFP_DOMAIN;
 const SECRET_KEY = process.env.WFP_SECRET;
 const API = process.env.WFP_API_URL;
-
-app.get("/", (req, res) => {
-  res.send("Сервер працює! API для WayForPay налаштовано.");
-});
 
 app.post("/create-payment", (req, res) => {
   try {
