@@ -136,13 +136,19 @@ app.post("/create-payment", (req, res) => {
   }
 });
 
-app.get('*', (req, res, next) => {
-  // 1. Якщо це запит до API, пропускаємо його далі до обробника POST
-  if (req.path.startsWith('/create-payment')) {
+app.use((req, res, next) => {
+  // 1. Якщо це запит до API (POST), або шлях починається з /create-payment — пропускаємо
+  if (req.method === 'POST' || req.path.startsWith('/create-payment')) {
     return next();
   }
 
-  // 2. Для всього іншого віддаємо фронтенд
+  // 2. Якщо це запит за статичними файлами (JS, CSS, картинки), які Express.static вже обробив — пропускаємо
+  // (це на випадок, якщо файл не знайдено, щоб не було нескінченного циклу)
+  if (req.path.includes('.')) {
+    return res.status(404).send('Not found');
+  }
+
+  // 3. Для всіх інших випадків (головна сторінка, роути React) віддаємо index.html
   res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
