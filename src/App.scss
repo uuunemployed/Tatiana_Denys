@@ -9,6 +9,12 @@
 
 html { font-size: 1vw; }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; 
+  position: relative;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.12;
@@ -22,6 +28,11 @@ svg {
   @include fluid-text(5.33rem, 1.12rem);
   width: 1em;
   height: 1em;
+
+  @include onTablet {
+    width: 2.60rem;
+    height: 2.60rem;
+  }
 }
 
 .text_gray { color: $color-gray-light; }

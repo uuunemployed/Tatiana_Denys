@@ -7,9 +7,18 @@ import { Button } from "../../../../components/MakeupButton/MakeupButton";
 export const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToPricing = () => {
+  const element = document.getElementById('pricing');
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth', // Плавна анімація
+      block: 'start'      // Скролити до початку секції
+    });
+  }
+};
+
   return (
     <section className={styles.hero}>
-      {/* Додав клас замість inline-styles для чистоти */}
       <div className={styles.hero__inner}>
         <header className={styles.hero__header}>
           <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
@@ -43,7 +52,7 @@ export const Hero = () => {
             </p>
             <Button
               variant="hero"
-              onClick={() => console.log("Відкрити форму реєстрації")}
+              onClick={scrollToPricing}
             >
               Почати навчання
             </Button>

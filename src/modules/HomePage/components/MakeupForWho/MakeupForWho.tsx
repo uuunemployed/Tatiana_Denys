@@ -30,6 +30,7 @@ export function MakeupForWho() {
             title="ДЛЯ КОГО"
             titleSub="ПІДІЙДЕ КУРС?"
             isStiky={true}
+            alignCenter="left"
           />
         </div>
 

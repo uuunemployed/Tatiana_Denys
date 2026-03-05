@@ -6,12 +6,14 @@ export const Sectionheader = ({
   titleSub,
   isTextWhite = false,
   isStiky = false,
+    alignCenter = "center",
 }: {
   subtitle?: string;
   title: string;
   titleSub?: string | null;
   isTextWhite?: boolean;
   isStiky?: boolean;
+  alignCenter?: 'center' | "left" | "right";
 }) => {
   const textColor = isTextWhite ? "#ffffff" : "#0A0A0A";
   return (
@@ -29,7 +31,7 @@ export const Sectionheader = ({
       )}
       <h2
         style={{ color: textColor }}
-        className={styles["section-header__title"]}
+        className={`${styles["section-header__title"]} ${styles[`section-header__title--${alignCenter}`]}`}
       >
         {title}
         {titleSub && (

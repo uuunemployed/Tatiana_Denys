@@ -1,18 +1,31 @@
-import { useState } from "react"; // 1. Імпортуємо useState
+// import { useState } from "react";
+import ClockIcon from "../../../../shared/icons/clock.svg?react";
+import InfinityIcon from "../../../../shared/icons/infinity.svg?react";
+import GiftIcon from "../../../../shared/icons/gift.svg?react";
+import CheckIcon from "../../../../shared/icons/check.svg?react"; 
+
 import { Sectionheader } from "../../../../components/SectionHeader";
-import ArrowIcon from "../../../../shared/icons/iron.svg?react";
+import { Button } from "../../../../components/MakeupButton/MakeupButton";
 import styles from "./MakeupPricing.module.scss";
 
 export function MakeupPricing() {
-  const [isLoading, setIsLoading] = useState(false); // Стан завантаження
+  // const [isLoading, setIsLoading] = useState(false);
 
   const pricingData = {
-    planName: "ОДИН ТАРИФ — 10 уроків",
-    description:
-      "10 практичних уроків «з нуля» до впевненого щоденного макіяжу.",
+    planName: "ОДИН ТАРИФ",
+    lessonCount: "10 УРОКІВ",
+    description: "10 практичних уроків «з нуля» до впевненого щоденного макіяжу.",
     details: [
-      { label: "ТРИВАЛІСТЬ", value: "10 днів — 10 практичних уроків" },
-      { label: "ДОСТУП ДО УРОКІВ", value: "Одразу після оплати і назавжди" },
+      { 
+        label: "ТРИВАЛІСТЬ", 
+        value: "10 днів — 10 практичних уроків",
+        icon: <ClockIcon />,
+      },
+      { 
+        label: "ДОСТУП ДО УРОКІВ", 
+        value: "Одразу після оплати і назавжди",
+        icon: <InfinityIcon />,
+      },
     ],
     bonuses: [
       "Чек-лист по пензликах",
@@ -26,135 +39,119 @@ export function MakeupPricing() {
     badge: "✓ Доступ відразу після оплати • Безпечна оплата",
   };
 
-  // 2. Функція обробки покупки
-  const handleBuy = async () => {
-    setIsLoading(true);
+  // const handleBuy = async () => {
+    // setIsLoading(true);
+    // try {
+    //   const cleanPrice = pricingData.currentPrice.replace(/\D/g, "");
+    //   const requestBody = {
+    //     products: [{ name: `${pricingData.planName} — ${pricingData.lessonCount}`, price: cleanPrice, count: 1 }],
+    //     client: { firstName: "Guest", email: "" },
+    //   };
 
-    try {
-      // Очищаємо ціну від " грн" та пробілів, щоб отримати чисте число/рядок "799"
-      const cleanPrice = pricingData.currentPrice.replace(/\D/g, "");
+    //   const response = await fetch("https://tatiana-denys.onrender.com/create-payment", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(requestBody),
+    //   });
 
-      const requestBody = {
-        products: [
-          {
-            name: pricingData.planName, // Назва товару
-            price: cleanPrice, // Ціна (без валюти)
-            count: 1, // Кількість
-          },
-        ],
-        // Можна додати дані клієнта, якщо вони є (наприклад, з форми вище)
-        client: {
-          firstName: "Guest",
-          email: "",
-        },
-      };
+    //   if (!response.ok) throw new Error("Помилка сервера");
+    //   const htmlForm = await response.text();
+    //   const tempContainer = document.createElement("div");
+    //   tempContainer.innerHTML = htmlForm;
+    //   tempContainer.style.display = "none";
+    //   document.body.appendChild(tempContainer);
+    //   tempContainer.querySelector("form")?.submit();
+    // } catch (error) {
+    //   console.error(error);
+    //   alert("Виникла помилка при переході до оплати. Спробуйте пізніше.");
+    //   setIsLoading(false);
+    // }
+  // };
 
-      // Робимо запит на твій Node.js сервер
-      const response = await fetch("https://tatiana-denys.onrender.com/create-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      if (!response.ok) {
-        throw new Error("Помилка сервера");
-      }
-
-      // Отримуємо HTML-форму від бекенду
-      const htmlForm = await response.text();
-
-      // 3. Створюємо невидимий контейнер, вставляємо туди форму і сабмітимо її
-      const tempContainer = document.createElement("div");
-      tempContainer.innerHTML = htmlForm;
-      tempContainer.style.display = "none";
-      document.body.appendChild(tempContainer);
-
-      const form = tempContainer.querySelector("form");
-      if (form) {
-        form.submit(); 
-      } else {
-        console.error("Форму оплати не знайдено у відповіді");
-        setIsLoading(false);
-      }
-    } catch (error) {
-      console.error("Payment error:", error);
-      alert("Виникла помилка при переході до оплати. Спробуйте пізніше.");
-      setIsLoading(false);
-    }
-  };
+  const handleBuy = () => {
+    window.location.href = "https://secure.wayforpay.com/page?vkh=69a9d2a0-a820-4193-abd6-0fd222d1dba8";
+  }
 
   return (
-    <section className={styles.pricing}>
+    <section className={styles.pricing} id="pricing">
       <div className={styles.pricing__header}>
-        <Sectionheader title="Варіанти" titleSub="участі" />
+        <Sectionheader title="Варіант" titleSub="участі" />
       </div>
 
-      <div className={styles.pricing__card}>
-        <div className={styles.pricing__cardInner}>
-          <div className={styles.pricing__planInfo}>
-            <h3 className={styles.pricing__planTitle}>
-              {pricingData.planName}
-            </h3>
-            <p className={styles.pricing__planDesc}>
-              {pricingData.description}
-            </p>
+      <div className={styles.pricing__content}>
+        <div className={styles.pricing__card}>
+          <div className={styles.pricing__cardHeader}>
+            <div className={styles.pricing__badgeContainer}>
+              <span className={styles.pricing__badgeText}>{pricingData.planName}</span>
+              <div className={styles.pricing__badgeDivider} />
+              <span className={styles.pricing__badgeText}>{pricingData.lessonCount}</span>
+            </div>
+            <p className={styles.pricing__headerDesc}>{pricingData.description}</p>
+            <div className={styles.pricing__headerBottomLine} />
           </div>
 
-          <div className={styles.pricing__details}>
-            {pricingData.details.map((detail, idx) => (
-              <div key={idx} className={styles.pricing__detailItem}>
-                <div className={styles.pricing__detailLabel}>
-                  {detail.label}
-                </div>
-                <div className={styles.pricing__detailValue}>
-                  {detail.value}
-                </div>
-              </div>
-            ))}
-
-            <div className={styles.pricing__detailItem}>
-              <div className={styles.pricing__detailLabel}>БОНУСИ</div>
-              <ul className={styles.pricing__bonusList}>
-                {pricingData.bonuses.map((bonus, idx) => (
-                  <li key={idx} className={styles.pricing__bonusItem}>
-                    <span>•</span>
-                    <span>{bonus}</span>
-                  </li>
+          <div className={styles.pricing__cardContent}>
+            <div className={styles.pricing__gridWrapper}>
+              <div className={styles.pricing__features}>
+                {pricingData.details.map((detail, idx) => (
+                  <div key={idx} className={styles.pricing__featureItem}>
+                    <div className={styles.pricing__featureIcon}>{detail.icon}</div>
+                    <div className={styles.pricing__featureText}>
+                      <h3 className={styles.pricing__featureLabel}>{detail.label}</h3>
+                      <p className={styles.pricing__featureValue}>{detail.value}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
+
+              <div className={styles.pricing__bonusSection}>
+                <div className={styles.pricing__bonusHeader}>
+                  <div className={styles.pricing__featureIcon}>
+                    <GiftIcon />
+                  </div>
+                  <h3 className={styles.pricing__featureLabel}>БОНУСИ</h3>
+                </div>
+                <ul className={styles.pricing__bonusList}>
+                  {pricingData.bonuses.map((bonus, index) => (
+                    <li key={index} className={styles.pricing__bonusItem}>
+                      <div className={styles.pricing__bonusCheck}>
+                        <CheckIcon />
+                      </div>
+                      <span className={styles.pricing__bonusText}>{bonus}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+
+            <div className={styles.pricing__divider} />
+            
+            <div className={styles.pricing__priceRow}>
+              <span className={styles.pricing__priceCurrent}>{pricingData.currentPrice}</span>
+              <span className={styles.pricing__priceOld}>{pricingData.oldPrice}</span>
+            </div>
+
+            {/* <Button
+              variant="action"
+              onClick={handleBuy}
+              disabled={isLoading}
+              showIcon={!isLoading}
+              className={styles.pricing__cta}
+            >
+              {isLoading ? "Обробка..." : "Почати навчання"}
+            </Button> */}
+
+            <Button
+              variant="action"
+              onClick={handleBuy}
+            >
+              Почати навчання
+            </Button>
           </div>
-
-          <div className={styles.pricing__divider} />
-
-          <div className={styles.pricing__priceRow}>
-            <div className={styles.pricing__priceCurrent}>
-              {pricingData.currentPrice}
-            </div>
-            <div className={styles.pricing__priceOld}>
-              {pricingData.oldPrice}
-            </div>
-          </div>
-
-          {/* 4. Оновлена кнопка */}
-          <button
-            className={styles.pricing__cta}
-            onClick={handleBuy}
-            disabled={isLoading} // Блокуємо кнопку під час завантаження
-            style={{
-              opacity: isLoading ? 0.7 : 1,
-              cursor: isLoading ? "wait" : "pointer",
-            }}
-          >
-            <p>{isLoading ? "Обробка..." : "Почати навчання"}</p>
-            {!isLoading && <ArrowIcon />}
-          </button>
         </div>
-      </div>
 
-      <div className={styles.pricing__trustBadge}>{pricingData.badge}</div>
+        <div className={styles.pricing__trustBadge}>{pricingData.badge}</div>
+      </div>
     </section>
   );
 }

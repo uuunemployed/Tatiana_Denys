@@ -1,59 +1,15 @@
 import styles from "./MakeupBonuses.module.scss";
 import PresentIcon from "../../../../shared/icons/present.svg?react";
-import { useEffect, useState } from "react";
 
 const checklistItems = [
-  {
-    text: "чек-лист по пензликам",
-    top: "5%",
-    left: "-15%",
-    // Швидкість у % від ширини/висоти контейнера
-    speedX: -0.02, 
-    speedY: 0.01,
-  },
-  {
-    text: "довідник по косметиці",
-    top: "15%",
-    left: "70%",
-    speedX: 0.03,
-    speedY: -0.02,
-  },
-  {
-    text: "чек-лист по догляду",
-    top: "45%",
-    left: "-25%",
-    speedX: -0.04,
-    speedY: 0.03,
-  },
-  {
-    text: "бюджетна косметика",
-    top: "65%",
-    left: "75%",
-    speedX: 0.02,
-    speedY: -0.04,
-  },
-  {
-    text: "базовий набір",
-    top: "85%",
-    left: "10%",
-    speedX: -0.01,
-    speedY: 0.05,
-  },
+  { text: "чек-лист по пензликам", top: "10%", left: "-10%" },
+  { text: "довідник по косметиці", top: "20%", left: "45%" },
+  { text: "чек-лист по догляду", top: "70%", left: "-10%" },
+  { text: "базовий набір", top: "80%", left: "65%" },
+  { text: "бюджетна косметика", top: "90%", left: "10%" },
 ];
+
 export function MakeupBonuses() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      window.requestAnimationFrame(() => {
-        setScrollY(window.scrollY);
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section className={styles.bonuses}>
       <div className={styles["bonuses__top-content"]}>
@@ -86,26 +42,22 @@ export function MakeupBonuses() {
       </div>
 
       <div className={styles.bonuses__videoWrapper}>
-        {/* <video 
+        <video
           className={styles.bonuses__video}
           poster="/images/video-placeholder.jpg"
-          controls
           playsInline
+          autoPlay
+          muted
+          loop
         >
-          <source src="/video/bonuses-preview.mp4" type="video/mp4" />
+          <source src="videos/bonuses-preview.mp4" type="video/mp4" />
           Ваш браузер не підтримує відео.
-        </video> */}
+        </video>
 
-        {checklistItems.map((item, index) => (
+        {checklistItems.map((item) => (
           <div
-            key={index}
             className={styles.bonuses__item}
-            style={{
-              top: item.top,
-              left: item.left,
-              // Рух по діагоналі: скрол множимо на вектори X та Y
-              transform: `translate3d(${scrollY * item.speedX}px, ${scrollY * item.speedY}px, 0)`,
-            }}
+            style={{ top: item.top, left: item.left }}
           >
             {item.text}
           </div>

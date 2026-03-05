@@ -22,7 +22,7 @@ export const Button = ({
       className={buttonClass} 
       {...props} 
     >
-      {children}
+      <span className={styles.btn__text}>{children}</span>
       {showIcon && <ButtonIron className={styles.btn__icon} />}
     </button>
   );
