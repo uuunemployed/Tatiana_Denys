@@ -8,14 +8,14 @@ export const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToPricing = () => {
-  const element = document.getElementById('pricing');
-  if (element) {
-    element.scrollIntoView({ 
-      behavior: 'smooth', // Плавна анімація
-      block: 'start'      // Скролити до початку секції
-    });
-  }
-};
+    const element = document.getElementById("pricing");
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <section className={styles.hero}>
@@ -50,10 +50,7 @@ export const Hero = () => {
               щоденного життя без перенавантаження косметикою, складних технік
               та дорогих продуктів.
             </p>
-            <Button
-              variant="hero"
-              onClick={scrollToPricing}
-            >
+            <Button variant="hero" onClick={scrollToPricing}>
               Почати навчання
             </Button>
           </div>

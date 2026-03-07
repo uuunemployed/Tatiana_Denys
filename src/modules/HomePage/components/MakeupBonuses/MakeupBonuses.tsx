@@ -26,17 +26,18 @@ export function MakeupBonuses() {
 
         <div className={styles.bonuses__info}>
           <p className={styles.bonuses__text}>
-            Щоб ви не витрачали гроші на випадкові покупки, я зібрала близько
+           Щоб ви не витрачали гроші на випадкові покупки я зібрала 
             <span className={styles.bonuses__highlight}>
               {" "}
-              300 бюджетних засобів
+              більше 500 засобів
             </span>
-            , які реально працюють
+            , у чек листах, які реально працюють.
           </p>
           <p className={styles.bonuses__text}>
-            Це мій особистий список після
-            <span className={styles.bonuses__highlight}> сотень тестів</span>,
-            який ви отримаєте у подарунок разом з курсом
+            Вони містять 
+            <span className={styles.bonuses__highlight}> посилання на магазини</span>,
+            , де можна придбати косметику, яку я рекомендую.
+            <span className={styles.bonuses__highlight}> яку я рекомендую.</span>,
           </p>
         </div>
       </div>

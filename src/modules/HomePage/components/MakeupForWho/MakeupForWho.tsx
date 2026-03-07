@@ -20,6 +20,16 @@ const cardsData = [
   },
 ];
 
+  const scrollToPricing = () => {
+    const element = document.getElementById("pricing");
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
 export function MakeupForWho() {
   return (
     <section className={styles["makeup-for-who"]}>
@@ -57,7 +67,7 @@ export function MakeupForWho() {
         </div>
 
         <div className={styles["makeup-for-who__cta"]}>
-          <Button variant="action">
+          <Button variant="action" onClick={scrollToPricing}>
             хочу на курс
           </Button>
         </div>

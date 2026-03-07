@@ -55,10 +55,6 @@
     border-radius: 266.66rem;
     gap: 3.2rem;
 
-    &:hover:not(:disabled) {
-      background-color: lighten($color-primary, 5%);
-    }
-
     @include onTablet {
       padding: 1.51rem 2.57rem;
       gap: 1rem;

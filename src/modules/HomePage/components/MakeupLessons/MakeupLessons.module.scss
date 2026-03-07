@@ -46,7 +46,6 @@
     display: flex;
     flex-direction: column;
     gap: 6.4rem;
-    padding-top: 6.4rem;
 
     @include onTablet {
       gap: 1.04rem;
@@ -153,4 +152,12 @@
     text-align: center;
     margin-top: 5rem;
   }
+}
+
+.text_gray {
+  color: #d1d5db;
+}
+
+.bold {
+  color: $color-white;
 }
