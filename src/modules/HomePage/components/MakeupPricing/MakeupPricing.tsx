@@ -69,7 +69,7 @@ export function MakeupPricing() {
   // };
 
   const handleBuy = () => {
-    window.location.href = "https://secure.wayforpay.com/page?vkh=69ac7c55-6738-4e7d-8552-0ac522d1dba8";
+    window.location.href = "https://secure.wayforpay.com/button/b7a5410110b6d";
   }
 
   return (
