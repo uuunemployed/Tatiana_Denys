@@ -27,11 +27,11 @@ export const Hero = () => {
         <div className={styles.hero__content}>
           <div className={styles.hero__title}>
             <div className={styles["hero__title-content"]}>
-              <div className={styles["hero__title--top"]}>
+              <div data-aos="fade-right" className={styles["hero__title--top"]}>
                 <span className={styles["hero__title-letter"]}>M</span>
                 AKEUP
               </div>
-              <div className={styles["hero__title--bottom"]}>
+              <div data-aos="fade-left" className={styles["hero__title--bottom"]}>
                 <span className={styles["hero__title-letter"]}>S</span>
                 TART
               </div>

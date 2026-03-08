@@ -1,3 +1,4 @@
+import { useRef } from "react";
 // import { useState } from "react";
 import ClockIcon from "../../../../shared/icons/clock.svg?react";
 import InfinityIcon from "../../../../shared/icons/infinity.svg?react";
@@ -7,9 +8,12 @@ import CheckIcon from "../../../../shared/icons/check.svg?react";
 import { Sectionheader } from "../../../../components/SectionHeader";
 import { Button } from "../../../../components/MakeupButton/MakeupButton";
 import styles from "./MakeupPricing.module.scss";
+import { useReveal } from "../../../../shared/hooks/useScrollRaveal"; // Імпорт хука
 
 export function MakeupPricing() {
   // const [isLoading, setIsLoading] = useState(false);
+  const containerRef = useRef<HTMLElement>(null!);
+  useReveal(containerRef);
 
   const pricingData = {
     planName: "ОДИН ТАРИФ",
@@ -40,46 +44,46 @@ export function MakeupPricing() {
   };
 
   // const handleBuy = async () => {
-    // setIsLoading(true);
-    // try {
-    //   const cleanPrice = pricingData.currentPrice.replace(/\D/g, "");
-    //   const requestBody = {
-    //     products: [{ name: `${pricingData.planName} — ${pricingData.lessonCount}`, price: cleanPrice, count: 1 }],
-    //     client: { firstName: "Guest", email: "" },
-    //   };
+  //   // setIsLoading(true);
+  //   // try {
+  //   //   const cleanPrice = pricingData.currentPrice.replace(/\D/g, "");
+  //   //   const requestBody = {
+  //   //     products: [{ name: `${pricingData.planName} — ${pricingData.lessonCount}`, price: cleanPrice, count: 1 }],
+  //   //     client: { firstName: "Guest", email: "" },
+  //   //   };
 
-    //   const response = await fetch("https://tatiana-denys.onrender.com/create-payment", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(requestBody),
-    //   });
+  //   //   const response = await fetch("https://tatiana-denys.onrender.com/create-payment", {
+  //   //     method: "POST",
+  //   //     headers: { "Content-Type": "application/json" },
+  //   //     body: JSON.stringify(requestBody),
+  //   //   });
 
-    //   if (!response.ok) throw new Error("Помилка сервера");
-    //   const htmlForm = await response.text();
-    //   const tempContainer = document.createElement("div");
-    //   tempContainer.innerHTML = htmlForm;
-    //   tempContainer.style.display = "none";
-    //   document.body.appendChild(tempContainer);
-    //   tempContainer.querySelector("form")?.submit();
-    // } catch (error) {
-    //   console.error(error);
-    //   alert("Виникла помилка при переході до оплати. Спробуйте пізніше.");
-    //   setIsLoading(false);
-    // }
+  //   //   if (!response.ok) throw new Error("Помилка сервера");
+  //   //   const htmlForm = await response.text();
+  //   //   const tempContainer = document.createElement("div");
+  //   //   tempContainer.innerHTML = htmlForm;
+  //   //   tempContainer.style.display = "none";
+  //   //   document.body.appendChild(tempContainer);
+  //   //   tempContainer.querySelector("form")?.submit();
+  //   // } catch (error) {
+  //   //   console.error(error);
+  //   //   alert("Виникла помилка при переході до оплати. Спробуйте пізніше.");
+  //   //   setIsLoading(false);
+  //   // }
   // };
 
   const handleBuy = () => {
-    window.location.href = "https://secure.wayforpay.com/button/b7a5410110b6d";
+    window.location.href = "https://secure.wayforpay.com/button/b7c5a280ff8cf";
   }
 
   return (
-    <section className={styles.pricing} id="pricing">
-      <div className={styles.pricing__header}>
+    <section ref={containerRef} className={styles.pricing} id="pricing">
+      <div className={`${styles.pricing__header} reveal-item`}>
         <Sectionheader title="Варіант" titleSub="участі" />
       </div>
 
       <div className={styles.pricing__content}>
-        <div className={styles.pricing__card}>
+        <div className={`${styles.pricing__card} reveal-item`}>
           <div className={styles.pricing__cardHeader}>
             <div className={styles.pricing__badgeContainer}>
               <span className={styles.pricing__badgeText}>{pricingData.planName}</span>
@@ -150,7 +154,9 @@ export function MakeupPricing() {
           </div>
         </div>
 
-        <div className={styles.pricing__trustBadge}>{pricingData.badge}</div>
+        <div className={`${styles.pricing__trustBadge} reveal-item`}>
+          {pricingData.badge}
+        </div>
       </div>
     </section>
   );

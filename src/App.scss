@@ -37,3 +37,13 @@ svg {
 
 .text_gray { color: $color-gray-light; }
 .bold { font-weight: 700; }
+
+.reveal-item {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Коли клас додається JS-ом, елемент плавно з'являється */
+.is-visible {
+  opacity: 1 !important; /* !important гарантує, що JS перекриє будь-що */
+}

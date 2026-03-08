@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './MakeupFAQ.module.scss';
 import { Sectionheader } from '../../../../components/SectionHeader';
 import PlusIcon from "../../../../shared/icons/plus.svg?react";
 import MinusIcon from "../../../../shared/icons/minus.svg?react";
+import { useReveal } from "../../../../shared/hooks/useScrollRaveal"; // Імпортуємо ваш хук
 
 const faqs = [
   {
@@ -37,20 +38,32 @@ const faqs = [
 
 export function MakeupFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLElement>(null!);
+  
+  // Активуємо логіку відстеження скролу
+  useReveal(containerRef);
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className={styles.faq}>
+    <section ref={containerRef} className={styles.faq}>
       <div className={styles.faq__container}>
 
-        <Sectionheader subtitle='asked questiony' title='Найпоширеніші' titleSub='запитання'/>
+        {/* Заголовок секції */}
+        <div className="reveal-item">
+          <Sectionheader subtitle='asked questions' title='Найпоширеніші' titleSub='запитання'/>
+        </div>
 
         <div className={styles.faq__list}>
           {faqs.map((faq, index) => (
-            <div key={index} className={styles.faq__item}>
+            <div 
+              key={index} 
+              className={`${styles.faq__item} reveal-item`}
+              // Кожне наступне питання з'являється трохи пізніше
+              style={{ transitionDelay: `${index * 100}ms` } as React.CSSProperties}
+            >
               <button
                 onClick={() => toggleQuestion(index)}
                 className={styles.faq__button}
@@ -74,7 +87,8 @@ export function MakeupFAQ() {
           ))}
         </div>
 
-        <div className={styles.faq__contact}>
+        {/* Блок контактів внизу */}
+        <div className={`${styles.faq__contact} reveal-item`} style={{ transitionDelay: '800ms' }}>
           <h3 className={styles.faq__contactTitle}>Не знайшли відповідь?</h3>
           <p className={styles.faq__contactText}>
             Напишіть мені в Instagram, я з радістю відповім на всі ваші запитання

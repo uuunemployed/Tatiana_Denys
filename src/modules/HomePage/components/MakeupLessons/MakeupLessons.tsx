@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./MakeupLessons.module.scss";
 import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
 import ButtonIron from "../../../../shared/icons/iron.svg?react";
 import { Button } from "../../../../components/MakeupButton/MakeupButton";
+import { useReveal } from "../../../../shared/hooks/useScrollRaveal"; // Перевір шлях до хука
+
 interface Topic {
   text: string;
   bold?: string;
@@ -17,7 +19,7 @@ interface Lesson {
   image: string;
 }
 
-const lessonsData = [
+const lessonsData: Lesson[] = [
   {
     id: "01",
     title: "Підготовка шкіри",
@@ -26,8 +28,7 @@ const lessonsData = [
       { text: "Правильна підготовка до макіяжу кожного типу шкіри" },
       { text: "Перекриття ", bold: "кольорових недоліків ", rest: "шкіри" },
     ],
-    result:
-      "Визначите свій тип шкіри за 2 хвилини, оберете засоби під макіяж та навчитеся приховувати недоліки.",
+    result: "Визначите свій тип шкіри за 2 хвилини, оберете засоби під макіяж та навчитеся приховувати недоліки.",
     image: "images/lesson-photo-1.PNG",
   },
   {
@@ -38,8 +39,7 @@ const lessonsData = [
       { text: "Як і чим правильно його наносити?" },
       { text: "Консилер: як обрати і наносити ", bold: "без скочування?" },
     ],
-    result:
-      "Підберете ідеальний тон, зробите стійке перекриття та забезпечите тривалість макіяжу без скочування.",
+    result: "Підберете ідеальний тон, зробите стійке перекриття та забезпечите тривалість макіяжу без скочування.",
     image: "images/lesson-photo-2.JPG",
   },
   {
@@ -50,8 +50,7 @@ const lessonsData = [
       { text: "Як обрати ", bold: "відтінки ", rest: "і як наносити?" },
       { text: "Для якої шкіри і потреб підійде?" },
     ],
-    result:
-      "Навчитеся натуральній корекції без плям. Зрозумієте різницю між бронзером та скульптором. Навчитеся робити легкий рельєф шкіри",
+    result: "Навчитеся натуральній корекції без плям. Зрозумієте різницю між бронзером та скульптором. Навчитеся робити легкий рельєф шкіри",
     image: "images/lesson-photo-3.PNG",
   },
   {
@@ -59,15 +58,10 @@ const lessonsData = [
     title: "Пудри",
     topics: [
       { text: "Які потреби ", bold: "закриває пудра?" },
-      {
-        text: "Види та як ",
-        bold: "обрати для себе ",
-        rest: "відповідно до типу шкіри?",
-      },
+      { text: "Види та як ", bold: "обрати для себе ", rest: "відповідно до типу шкіри?" },
       { text: "Техніки фіксації макіяжу" },
     ],
-    result:
-      "Навчитеся обирати пудру під конкретну потребу та правильно фіксувати макіяж без ефекту маски.",
+    result: "Навчитеся обирати пудру під конкретну потребу та правильно фіксувати макіяж без ефекту маски.",
     image: "images/lesson-photo-4.JPG",
   },
   {
@@ -78,8 +72,7 @@ const lessonsData = [
       { text: "Секрет ", bold: "тушовки без плям" },
       { text: "Кому підійде дана корекція?" },
     ],
-    result:
-      "Оберете для себе вид корекції, яка буде триматися стійко протягом дня, без плям та рижини.",
+    result: "Оберете для себе вид корекції, яка буде триматися стійко протягом дня, без плям та рижини.",
     image: "images/lesson-photo-5.JPG",
   },
   {
@@ -89,8 +82,7 @@ const lessonsData = [
       { text: "Як обрати ", bold: "правильну форму ", rest: "брів?" },
       { text: "Найпростіший спосіб оформлення ", bold: "двома продуктами" },
     ],
-    result:
-      "Навчитеся робити природні брови, які не додають віку, а підкреслюють обличчя.",
+    result: "Навчитеся робити природні брови, які не додають віку, а підкреслюють обличчя.",
     image: "images/lesson-photo-6.JPG",
   },
   {
@@ -98,15 +90,10 @@ const lessonsData = [
     title: "Макіяж очей",
     topics: [
       { text: "Виразний погляд ", bold: "двома продуктами" },
-      {
-        text: "Секрет візуального ",
-        bold: "зменшення нависання ",
-        rest: "повіки",
-      },
+      { text: "Секрет візуального ", bold: "зменшення нависання ", rest: "повіки" },
       { text: "Швидке підкреслення погляду без тіней" },
     ],
-    result:
-      "Навчитеся приховувати нависання та зможете створювати виразний погляд за 2 хвилини.",
+    result: "Навчитеся приховувати нависання та зможете створювати виразний погляд за 2 хвилини.",
     image: "images/lesson-photo-7.JPG",
   },
   {
@@ -116,24 +103,18 @@ const lessonsData = [
       { text: "Як обрати ", bold: "ідеальний відтінок ", rest: "помади?" },
       { text: "Як правильно ", bold: "збільшувати губи ", rest: "натурально?" },
     ],
-    result:
-      "Навчитеся підбирати свій ідеальний відтінок та додавати легкого обʼєму непомітно.",
+    result: "Навчитеся підбирати свій ідеальний відтінок та додавати легкого обʼєму непомітно.",
     image: "images/lesson-photo-8.JPG",
   },
   {
     id: "09",
     title: "Урок про кольоротипи",
     topics: [
-      {
-        text: "4 основні ",
-        bold: "кольоротипи ",
-        rest: "та їх характеристики",
-      },
+      { text: "4 основні ", bold: "кольоротипи ", rest: "та їх характеристики" },
       { text: "Визначення свого кольотипу за 2хв" },
       { text: "Підбір кольорів, які ", bold: "вам пасують" },
     ],
-    result:
-      "Навчитеся правильно обирати відтінки в макіяжі та гардеробі, щоб підкреслювати свою зовнішність.",
+    result: "Навчитеся правильно обирати відтінки в макіяжі та гардеробі, щоб підкреслювати свою зовнішність.",
     image: "images/lesson-photo-9.JPG",
   },
   {
@@ -145,45 +126,49 @@ const lessonsData = [
       { text: "Продукт та пензлик для ", bold: "швидких стрілок" },
       { text: "Як намалювати ", bold: "однакові стрілки?" },
     ],
-    result:
-      "Навчитеся легко і швидко малювати симетричні стрілки на кожен день та зрозумієте, який вид обрати для вашої форми повіки.",
+    result: "Навчитеся легко і швидко малювати симетричні стрілки на кожен день та зрозумієте, який вид обрати для вашої форми повіки.",
     image: "images/lesson-photo-10.png",
   },
 ];
 
 export function MakeupLessons() {
   const [showAll, setShowAll] = useState(false);
+  const containerRef = useRef<HTMLElement>(null!);
+  useReveal(containerRef);
+
   const visibleLessons = lessonsData.slice(0, 3);
   const hiddenLessons = lessonsData.slice(3);
 
   return (
-    <section className={styles.lessons}>
+    <section ref={containerRef} className={styles.lessons}>
       <div className={styles.lessons__container}>
-        <Sectionheader
-          subtitle="course program"
-          title="Програма курсу"
-          isTextWhite
-        />
+        <div className="reveal-item">
+          <Sectionheader
+            subtitle="course program"
+            title="Програма курсу"
+            isTextWhite
+          />
+        </div>
 
         <div className={styles.lessons__grid}>
           {visibleLessons.map((lesson) => (
-            <LessonCard key={lesson.id} lesson={lesson} />
+            <div key={lesson.id} className="reveal-item">
+              <LessonCard lesson={lesson} />
+            </div>
           ))}
 
-          <div
-            className={`${styles.lessons__expandable} ${showAll ? styles.expanded : ""}`}
-          >
-            <div className={styles.lessons__expandable_inner}>
-              <div className={styles.lessons__hidden_list}>
+          {showAll && (
+             <div className={styles.lessons__hidden_list}>
                 {hiddenLessons.map((lesson) => (
-                  <LessonCard key={lesson.id} lesson={lesson} />
+                  <div key={lesson.id} className="reveal-item">
+                    <LessonCard lesson={lesson} />
+                  </div>
                 ))}
-              </div>
-            </div>
-          </div>
+             </div>
+          )}
         </div>
 
-        <div className={styles.lessons__footer}>
+        <div className={`${styles.lessons__footer} reveal-item`}>
           <Button
             variant="lessons"
             showIcon={false}
