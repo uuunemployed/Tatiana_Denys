@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import styles from "./MakeupLessons.module.scss";
-import { Sectionheader } from "../../../../components/SectionHeader/SectionHeader";
+import { Sectionheader } from "../../../../components/SectionHeader";
 import ButtonIron from "../../../../shared/icons/iron.svg?react";
 import { Button } from "../../../../components/MakeupButton/MakeupButton";
-import { useReveal } from "../../../../shared/hooks/useScrollRaveal"; // Перевір шлях до хука
+import { useReveal } from "../../../../shared/hooks/useScrollRaveal"; 
 
 interface Topic {
   text: string;
@@ -136,11 +136,8 @@ export function MakeupLessons() {
   const containerRef = useRef<HTMLElement>(null!);
   useReveal(containerRef);
 
-  const visibleLessons = lessonsData.slice(0, 3);
-  const hiddenLessons = lessonsData.slice(3);
-
   return (
-    <section ref={containerRef} className={styles.lessons}>
+    <section ref={containerRef} className={styles.lessons} id="lessons">
       <div className={styles.lessons__container}>
         <div className="reveal-item">
           <Sectionheader
@@ -151,21 +148,21 @@ export function MakeupLessons() {
         </div>
 
         <div className={styles.lessons__grid}>
-          {visibleLessons.map((lesson) => (
-            <div key={lesson.id} className="reveal-item">
-              <LessonCard lesson={lesson} />
-            </div>
-          ))}
-
-          {showAll && (
-             <div className={styles.lessons__hidden_list}>
-                {hiddenLessons.map((lesson) => (
-                  <div key={lesson.id} className="reveal-item">
-                    <LessonCard lesson={lesson} />
-                  </div>
-                ))}
-             </div>
-          )}
+          {/* Рендеримо ВCI уроки відразу, без умов JS */}
+          {lessonsData.map((lesson, index) => {
+            const isHidden = index >= 3;
+            return (
+              <div 
+                key={lesson.id} 
+                className={`reveal-item ${isHidden ? styles.lessons__hidden_item : ""}`}
+                style={isHidden && !showAll ? { display: 'none' } : {}} // Тимчасовий фікс для SEO/продуктивності
+              >
+                <div className={isHidden && showAll ? styles.lessons__item_fade : ""}>
+                   <LessonCard lesson={lesson} />
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         <div className={`${styles.lessons__footer} reveal-item`}>
@@ -194,18 +191,12 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
         <ul className={styles.lessons__topics}>
           {lesson.topics.map((topic, idx) => (
             <li key={idx} className={styles.lessons__topic_item}>
-              <ButtonIron
-                style={{ transform: "rotate(45deg)", flexShrink: 0 }}
-              />
+              <ButtonIron style={{ transform: "rotate(45deg)", flexShrink: 0 }} />
               <span className={styles.text_gray}>
-                {typeof topic === "string" ? (
-                  topic
-                ) : (
+                {typeof topic === "string" ? topic : (
                   <>
                     {topic.text}
-                    {topic.bold && (
-                      <span className={styles.bold}>{topic.bold}</span>
-                    )}
+                    {topic.bold && <span className={styles.bold}>{topic.bold}</span>}
                     {topic.rest}
                   </>
                 )}
@@ -216,11 +207,7 @@ function LessonCard({ lesson }: { lesson: Lesson }) {
       </div>
 
       <div className={styles.lessons__image_container}>
-        <img
-          src={lesson.image}
-          alt={lesson.title}
-          className={styles.lessons__image}
-        />
+        <img src={lesson.image} alt={lesson.title} className={styles.lessons__image} />
       </div>
 
       <div className={styles.lessons__result_section}>
