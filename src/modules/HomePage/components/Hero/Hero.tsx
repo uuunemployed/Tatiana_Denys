@@ -1,8 +1,8 @@
 import styles from "./Hero.module.scss";
-import MenuIcon from "../../../../shared/icons/menu.svg?react";
+// import MenuIcon from "../../../../shared/icons/menu.svg?react";
 import { useState } from "react";
-import { Menu } from "../Menu";
 import { Button } from "../../../../components/MakeupButton/MakeupButton";
+import BurgerMenu from "../Menu/Menu";
 
 export const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ export const Hero = () => {
     <section className={styles.hero}>
       <div className={styles.hero__inner}>
         <header className={styles.hero__header}>
-          <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
+          {/* <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)} /> */}
         </header>
 
         <div className={styles.hero__content}>
@@ -57,7 +57,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <BurgerMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </section>
   );
 };

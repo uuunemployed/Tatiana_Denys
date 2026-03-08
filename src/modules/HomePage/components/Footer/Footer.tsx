@@ -3,13 +3,13 @@ import InstagramIcon from "../../../../shared/icons/instagram.svg?react";
 import TelegramIcon from "../../../../shared/icons/telegram.svg?react";
 
 export function MakeupFooter() {
-  const navLinks = [
-    { name: "Головна", href: "#hero" },
-    { name: "Для кого курс", href: "#for-who" },
-    { name: "Програма навчання", href: "#lessons" },
-    { name: "Бонуси", href: "#bonuses" },
-    { name: "Ціна", href: "#pricing" },
-  ];
+  // const navLinks = [
+  //   { name: "Головна", href: "#hero" },
+  //   { name: "Для кого курс", href: "#for-who" },
+  //   { name: "Програма навчання", href: "#lessons" },
+  //   { name: "Бонуси", href: "#bonuses" },
+  //   { name: "Ціна", href: "#pricing" },
+  // ];
 
   return (
     <footer className={styles.footer}>
@@ -37,7 +37,7 @@ export function MakeupFooter() {
             </p>
           </div>
 
-          <div className={styles.footer__nav}>
+          {/* <div className={styles.footer__nav}>
             <h4 className={styles.footer__sectionTitle}>Навігація</h4>
             <ul className={styles.footer__list}>
               {navLinks.map((link) => (
@@ -48,16 +48,16 @@ export function MakeupFooter() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div className={styles.footer__contacts}>
             <h4 className={styles.footer__sectionTitle}>Контакти</h4>
             <div className={styles.footer__list}>
-              <a href="" target="_blank" rel="noopener noreferrer" className={styles.footer__contactItem}>
+              <a href="https://www.instagram.com/taniemua?igsh=NnV1dzFuNWd5bmp4&utm_source=qr" target="_blank" rel="noopener noreferrer" className={styles.footer__contactItem}>
                 <div className={styles.footer__iconWrapper}><InstagramIcon /></div>
                 Instagram
               </a>
-              <a href="" className={styles.footer__contactItem}>
+              <a href="https://t.me/taniemua" className={styles.footer__contactItem}>
                 <div className={styles.footer__iconWrapper}><TelegramIcon /></div>
                 Telegram
               </a>
@@ -70,10 +70,10 @@ export function MakeupFooter() {
             <p className={styles.footer__copyright}>
               © 2026 Makeup Secrets. Всі права захищені.
             </p>
-            <div className={styles.footer__legal}>
+            {/* <div className={styles.footer__legal}>
               <a href="#">Політика конфіденційності</a>
               <a href="#">Умови використання</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,19 +1,128 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
 .menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: $color-white;
+  z-index: 1000;
+  
+  // Твоя база анімації
   opacity: 0;
   pointer-events: none;
-  background-color: aqua;
-  height: 100vh;
   transform: translateX(100%);
-  transition: all 0.3s;
-  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  @include inline-padding;
 
   &-open {
     opacity: 1;
     transform: translateX(0);
     pointer-events: all;
+  }
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.toggleIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  color: $color-black;
+  transition: transform 0.3s ease, color 0.3s ease;
+  
+  // Керуємо розміром через CSS замість пропсів для адаптивності
+  width: 2.5rem;
+  height: 2.5rem;
+
+  &:hover {
+    color: $color-primary;
+    transform: scale(1.1);
+  }
+
+  @include onTablet {
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.iconActive {
+  transform: rotate(90deg);
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include inline-padding;
+}
+
+.menuList {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include onTablet {
+    gap: 3.75rem; 
+  }
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+
+  @include onTablet {
+    gap: 2.5rem;
+  }
+
+  &.even { flex-direction: row; }
+  &.odd { flex-direction: row-reverse; }
+
+  &:hover {
+    .itemTitle, .itemIndex {
+      color: $color-primary;
+    }
+  }
+}
+
+.itemIndex {
+  color: $color-gray-light;
+  font-style: italic;
+  transition: color 0.3s;
+  @include fluid-text(1rem, 1.5rem);
+}
+
+.itemTitle {
+  color: $color-black;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color 0.3s;
+  
+  // Пропорція до 3.75
+  @include fluid-text(1.75rem, 3.75rem); 
+
+  @include onDesktop {
+    font-size: 4.5rem;
   }
 }

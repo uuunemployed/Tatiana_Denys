@@ -7,13 +7,13 @@ const statsData = [
     modifier: styles["expert__card--first"],
   },
   {
-    number: "12+",
+    number: "8+",
     description: ["років у б'юті", "сфері"],
     modifier: styles["expert__card--second"],
   },
   {
-    number: "122",
-    description: ["тисячі", "аудиторії в", "інстаграм"],
+    number: "500+",
+    description: ["задоволених", "учениць"],
     modifier: styles["expert__card--third"],
   },
 ];
