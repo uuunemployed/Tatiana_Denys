@@ -7,8 +7,8 @@ const checklistItems = [
   { text: "чек-лист по пензликам", top: "10%", left: "-10%" },
   { text: "довідник по косметиці", top: "20%", left: "45%" },
   { text: "чек-лист по догляду", top: "70%", left: "-10%" },
-  { text: "базовий набір", top: "80%", left: "65%" },
-  { text: "бюджетна косметика", top: "90%", left: "10%" },
+  { text: "люксова косметичка", top: "80%", left: "65%" },
+  { text: "бюджетна косметичка", top: "90%", left: "10%" },
 ];
 
 export function MakeupBonuses() {
