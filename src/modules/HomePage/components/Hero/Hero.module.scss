@@ -4,7 +4,7 @@
 .hero {
   width: 100%;
   aspect-ratio: 10 / 16;
-  background: url(/images/hero-image.JPG) no-repeat center / cover;
+  background: url(/images/hero-image.png) no-repeat center / cover;
   @include flex-center;
   @include inline-padding;
   padding-bottom: 14.47rem;
